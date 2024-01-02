@@ -1,11 +1,7 @@
 <?php
 use App\Helpers\AdminHelper;
-use App\Http\Controllers\admin\BannerCategoryController;
-use App\Http\Controllers\admin\BannerController;
-use App\Http\Controllers\admin\BlogPostController;
 use App\Http\Controllers\admin\FaqCategoryController;
 use App\Http\Controllers\admin\FaqController;
-use App\Http\Controllers\admin\OurClientController;
 use App\Http\Controllers\admin\PageController;
 use App\Http\Controllers\AdminMainController;
 

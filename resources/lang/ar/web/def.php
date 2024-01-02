@@ -20,5 +20,4 @@ return
 	'lable_SKU' => 'المعرف :',
 	'products' => 'المنتجات',
 	'read_more' => 'اقرأ المزيد',
-	'zzzzzzzzz' => 'fsdfsdfsd',
 ];

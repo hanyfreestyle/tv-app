@@ -36,11 +36,7 @@ Route::group(['prefix' => 'EtmanShop'], function(){
         Route::get(LaravelLocalization::transRoute('routes.FaqCatView'),
             [ShopPageController::class, 'FaqCatView'])->name('Shop_FaqCatView');
 
-        Route::get('/CartView',
-            [ShoppingCartController::class, 'CartView'])->name('Shop_CartView');
 
-        Route::get('/CartEmpty',
-            [ShoppingCartController::class, 'CartEmpty'])->name('Shop_CartEmpty');
 
     });
 

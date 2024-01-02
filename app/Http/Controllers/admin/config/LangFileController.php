@@ -41,7 +41,7 @@ class LangFileController extends AdminMainController
             $selFileIs =  $listFile[$id]['file_name'];
             $prefixCopy = LangFileController::getPrefixCopy($listFile[$id]);
 
-            foreach ( config('app.lang_file') as $key=>$lang) {
+            foreach ( config('app.AdminLang') as $key=>$lang) {
                 $FullPathToFile  = LangFileController::getFullPathToFileArr($listFile[$id],$key);
                 $GetData = File::getRequire($FullPathToFile);
                 $result = array();
@@ -80,7 +80,7 @@ class LangFileController extends AdminMainController
         $selFileIs =  $listFile[$id]['file_name'];
 
         $contentAsArr =[];
-        foreach ( config('app.lang_file') as $key=>$lang)
+        foreach ( config('app.AdminLang') as $key=>$lang)
         {
             $FullPathToFile = LangFileController::getFullPathToFileArr($listFile[$id], $key);
 

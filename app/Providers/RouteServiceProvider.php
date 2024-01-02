@@ -45,7 +45,7 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::group(['middleware' => ['auth','status']], function() {
                 Route::group(['prefix' => LaravelLocalization::setLocale()], function(){
-                    Route::group(['prefix'=>'admin'],function(){
+                    Route::group(['prefix'=>'AppAdmin'],function(){
 
                         Route::middleware('web')
                             ->group(base_path('routes/admin_roles.php'));

@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Helpers\AdminHelper;
 use App\Models\admin\config\UploadFilter;
-use App\Models\admin\Developer;
-use App\Models\admin\Listing;
-use App\Models\admin\Post;
 use App\Models\admin\shop\Order;
 use Cache;
 use Illuminate\Support\Facades\View;
@@ -23,9 +20,6 @@ class AdminMainController extends Controller
     {
 
        // Cache::flush();
-      //  $this->middleware('auth');
-
-
         View::share('filterTypes', UploadFilter::cash_UploadFilter());
 
         $modelsNameArr = [
@@ -50,7 +44,6 @@ class AdminMainController extends Controller
             "19"=> ['id'=>'19','name'=>__('admin/config/roles.model_19')],
             "20"=> ['id'=>'20','name'=>__('admin/config/roles.model_20')],
             "21"=> ['id'=>'21','name'=>__('admin/config/roles.model_21')],
-
         ];
         View::share('modelsNameArr', $modelsNameArr);
 
@@ -87,9 +80,9 @@ class AdminMainController extends Controller
 #|||||||||||||||||||||||||||||||||||||| #     Dashboard
     public function Dashboard ()
     {
-
         return view('admin.dashbord');
     }
+
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| #     getDefSetting
     public function getDefSetting($controllerName,$key,$def){
@@ -99,6 +92,7 @@ class AdminMainController extends Controller
             return $def;
         }
     }
+
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| #     getSelect
     public function getSelectQuery($query){
@@ -139,13 +133,7 @@ class AdminMainController extends Controller
     }
 
 
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-#|||||||||||||||||||||||||||||||||||||| #     text
-   public function Home()
-    {
-      return view('admin.dashbord');
 
-    }
 
 
 }

@@ -35,6 +35,21 @@ class AdminHelper{
     }
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#|||||||||||||||||||||||||||||||||||||| #       detectFlag
+    public static function detectFlagNew($regional){
+        $data = [];
+        if (!empty($regional)) {
+            $regional = Str::lower($regional);
+           /// $regional = explode("_", $regional);
+           // $data['flagName'] = $regional[1];
+            $data['flagIcon'] = '<i class="flag-icon flag-icon-' . $regional . '  mr-2"></i>';
+        } else {
+            $data['flagIcon'] = '<i class="flag-icon flag-icon-' . 'eg' . '  mr-2"></i>';
+        }
+
+        return $data['flagIcon'];
+    }
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| #     returnPageDate
     public static function returnPageDate($controllerName,$sendArr=array()){
 

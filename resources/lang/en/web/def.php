@@ -20,5 +20,4 @@ return
 	'lable_SKU' => 'SKU',
 	'products' => 'Products',
 	'read_more' => 'Read More',
-	'zzzzzzzzz' => 'sdfsdfsdfsdf',
 ];

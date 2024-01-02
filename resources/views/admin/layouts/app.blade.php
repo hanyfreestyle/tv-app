@@ -268,9 +268,7 @@
         document.body.classList.add('Poppins');
     };
     loadarfont_en();
-
-
-    display_c7();
+    // display_c7();
 </script>
 
 @livewireScripts

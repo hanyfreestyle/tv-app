@@ -84,15 +84,19 @@ return [
     |
     */
 
-    'locale' => 'ar',
-    'lang_file' =>[
-        'ar'=>'العربية',
+    'locale' => 'en',
+
+    'AdminLang' =>[
         'en'=>'English',
+//        'ar'=>'العربية',
     ],
 
-    'shop_lang' =>[
-        'ar'=>'العربية',
+    'WebLang' =>[
+       // 'ar'=>'العربية',
+        'en'=>'English',
+        'es'=>'Spanish',
     ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale

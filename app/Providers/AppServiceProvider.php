@@ -10,7 +10,7 @@ use Illuminate\Support\ServiceProvider;
 class AppServiceProvider extends ServiceProvider
 {
 
-    public const HOME = '/ar/admin/Home';
+    public const HOME = '/ar/AppAdmin/Home';
     /**
      * Register any application services.
      */

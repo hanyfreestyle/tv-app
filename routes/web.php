@@ -20,7 +20,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function(){
 
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function(){
-    Route::group(['prefix'=>'admin'],function(){
+    Route::group(['prefix'=>'AppAdmin'],function(){
         Route::get('/login', [AuthAdminController::class, 'Adminlogin'])->name('login');
         Route::post('/loginCheck', [AuthAdminController::class, 'AdminLoginCheck'])->name('AdminLoginCheck');
         Route::post('/logout', [AuthAdminController::class, 'AdminLogout'])->name('logout');

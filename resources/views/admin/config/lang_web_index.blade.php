@@ -51,7 +51,7 @@
                                             @endif
                                         </div>
 
-                                        @foreach(config('app.lang_file') as $langkey=>$lang )
+                                        @foreach(config('app.WebLang') as $langkey=>$lang )
                                             <div class="col-4">
                                                 <textarea  name="{{$langkey}}[]" class="form-control @if($langkey == 'en') dir_en @endif">{!! AdminHelper::arrIsset($allData[$langkey],$key,"") !!}</textarea>
                                             </div>
