@@ -33,27 +33,6 @@
             'roleView'=>'Faq_view',
         ],#FAQ
 
-
-        [
-            'view'=>true,
-            'sel_routs'=>'OurClient',
-            'type'=>'one',
-            'text'=> 'admin/menu.OurClient',
-            'url'=> 'OurClient.index',
-            'icon'=>'fas fa-users',
-            'roleView'=>'OurClient_view',
-        ], #Our Client
-
-        [
-            'view'=>true,
-            'sel_routs'=>'Banners',
-            'type'=>'one',
-            'text'=> 'admin/menu.web_banner',
-            'url'=> 'Banners.Banner.index',
-            'icon'=>'fas fa-images',
-            'roleView'=>'Banner_view',
-        ], #Banners
-
         [
             'view'=>true,
             'sel_routs'=>'Pages',

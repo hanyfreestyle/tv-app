@@ -13,37 +13,6 @@ use App\Http\Controllers\AdminMainController;
 
 Route::get('/',[AdminMainController::class,'Dashboard'])->name('admin.Dashboard');
 
-Route::get('/OurClient',[OurClientController::class,'index'])->name('OurClient.index');
-Route::get('/OurClient/create',[OurClientController::class,'create'])->name('OurClient.create');
-Route::get('/OurClient/edit/{id}',[OurClientController::class,'edit'])->name('OurClient.edit');
-Route::get('/OurClient/destroy/{id}',[OurClientController::class,'destroy'])->name('OurClient.destroy');
-Route::post('/OurClient/update/{id}',[OurClientController::class,'storeUpdate'])->name('OurClient.update');
-Route::get('/OurClient/emptyPhoto/{id}', [OurClientController::class,'emptyPhoto'])->name('OurClient.emptyPhoto');
-Route::get('/OurClient/Sort',[OurClientController::class,'Sort'])->name('OurClient.Sort');
-Route::post('/OurClient/SaveSort', [OurClientController::class,'SaveSort'])->name('OurClient.SaveSort');
-Route::get('/OurClient/Config',[OurClientController::class,'config'])->name('OurClient.Config');
-
-
-
-Route::get('/Banner/Config',[BannerCategoryController::class,'config'])->name('Banners.Config');
-Route::get('/Banner/Category',[BannerCategoryController::class,'index'])->name('Banners.BannerCat.index');
-Route::get('/Banner/Category/create',[BannerCategoryController::class,'create'])->name('Banners.BannerCat.create');
-Route::get('/Banner/Category/edit/{id}',[BannerCategoryController::class,'edit'])->name('Banners.BannerCat.edit');
-Route::get('/Banner/Category/destroy/{id}',[BannerCategoryController::class,'destroy'])->name('Banners.BannerCat.destroy');
-Route::post('/Banner/Category/update/{id}',[BannerCategoryController::class,'storeUpdate'])->name('Banners.BannerCat.update');
-Route::get('/Banner/Category/SoftDelete/',[BannerCategoryController::class,'SoftDeletes'])->name('Banners.BannerCat.SoftDelete');
-Route::get('/Banner/Category/restore/{id}',[BannerCategoryController::class,'restored'])->name('Banners.BannerCat.restore');
-Route::get('/Banner/Category/force/{id}',[BannerCategoryController::class,'ForceDeletes'])->name('Banners.BannerCat.force');
-
-Route::get('/Banner',[BannerController::class,'index'])->name('Banners.Banner.index');
-Route::get('/Banner/ListCategory/{Categoryid}',[BannerController::class,'ListCategory'])->name('Banners.Banner.ListCategory');
-Route::get('/Banner/create',[BannerController::class,'create'])->name('Banners.Banner.create');
-Route::get('/Banner/edit/{id}',[BannerController::class,'edit'])->name('Banners.Banner.edit');
-Route::get('/Banner/destroy/{id}',[BannerController::class,'destroy'])->name('Banners.Banner.destroy');
-Route::post('/Banner/update/{id}',[BannerController::class,'storeUpdate'])->name('Banners.Banner.update');
-Route::get('/Banner/Sort/{Categoryid}',[BannerController::class,'Sort'])->name('Banners.Banner.Sort');
-Route::post('/Banner/SaveSort', [BannerController::class,'SaveSort'])->name('Banners.Banner.SaveSort');
-
 
 Route::get('/Faq/Config',[FaqCategoryController::class,'config'])->name('FAQ.Config');
 Route::get('/Faq/Category',[FaqCategoryController::class,'index'])->name('FAQ.FaqCat.index');

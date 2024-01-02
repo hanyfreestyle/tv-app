@@ -60,13 +60,7 @@ class DatabaseSeeder extends Seeder
         $this->call(WebPrivacySeeder::class);
         $this->call(WebPrivacyTranslationSeeder::class);
 
-        $this->call(OurClientSeeder::class);
-        $this->call(OurClientTranslationSeeder::class);
 
-        $this->call(BannerCategorySeeder::class);
-        $this->call(BannerCategoryTranslationSeeder::class);
-        $this->call(BannerSeeder::class);
-        $this->call(BannerTranslationSeeder::class);
 
         $this->call(FaqCategorySeeder::class);
         $this->call(FaqCategoryTranslationSeeder::class);
