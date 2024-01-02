@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2024 at 01:48 PM
+-- Generation Time: Jan 02, 2024 at 04:27 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -26,7 +26,9 @@ SET time_zone = "+00:00";
 --
 
 INSERT INTO `pages` (`id`, `cat_id`, `photo`, `photo_thum_1`, `is_active`, `postion`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'home', NULL, NULL, 1, 0, NULL, '2024-01-02 12:40:43', '2024-01-02 12:46:54');
+(1, 'home', NULL, NULL, 1, 0, NULL, '2024-01-02 12:40:43', '2024-01-02 12:46:54'),
+(2, 'ContactUs', NULL, NULL, 1, 0, NULL, '2024-01-02 15:09:09', '2024-01-02 15:09:09'),
+(3, 'faq_page', NULL, NULL, 1, 0, NULL, '2024-01-02 15:27:38', '2024-01-02 15:27:38');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

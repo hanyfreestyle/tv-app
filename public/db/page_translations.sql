@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2024 at 01:48 PM
+-- Generation Time: Jan 02, 2024 at 04:28 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -27,7 +27,11 @@ SET time_zone = "+00:00";
 
 INSERT INTO `page_translations` (`id`, `page_id`, `locale`, `name`, `g_title`, `g_des`) VALUES
 (1, 1, 'en', 'Home Page', 'Home Page', 'Home Page'),
-(2, 1, 'es', 'Home Page', 'Home Page', 'Home Page');
+(2, 1, 'es', 'Home Page', 'Home Page', 'Home Page'),
+(3, 2, 'en', 'Contact Us', 'Contact Us', 'Contact Us'),
+(4, 2, 'es', 'Contact Us', 'Contact Us', 'Contact Us'),
+(5, 3, 'en', 'Faq', 'Faq', 'Faq'),
+(6, 3, 'es', 'Faq', 'Faq', 'Faq');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

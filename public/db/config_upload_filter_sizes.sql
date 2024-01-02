@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 12, 2023 at 03:40 AM
+-- Generation Time: Jan 02, 2024 at 04:26 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `a_etman`
+-- Database: `apptv_20240102`
 --
 
 --
@@ -30,9 +30,7 @@ INSERT INTO `config_upload_filter_sizes` (`id`, `filter_id`, `type`, `new_w`, `n
 (2, 4, 4, 400, 400, '#FFFFFF', 0, 0, 0),
 (3, 5, 4, 800, 600, '#ffffff', 0, 0, 0),
 (4, 5, 4, 320, 240, '#ffffff', 0, 0, 0),
-(5, 6, 4, 900, 473, '#FFFFFF', 0, 0, 0),
-(6, 7, 4, 420, 205, '#FFFFFF', 0, 0, 0),
-(7, 8, 5, 350, 350, '#FFFFFF', 0, 0, 0);
+(8, 3, 4, 400, 400, '#FFFFFF', 0, 0, 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
