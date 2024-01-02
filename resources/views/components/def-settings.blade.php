@@ -4,7 +4,7 @@
     <div class="row">
 
         <x-form-input label="{{__('admin/config/settings.set_perpage')}}" name="{{$modelname}}_perpage" :requiredSpan="true" colrow="col-lg-3" dir="ar"
-                      value="{{old($modelname.'_perpage',\App\Helpers\AdminHelper::arrIsset($modelSettings,$modelname.'_perpage',10))}}" inputclass="dir_ar" />
+                      value="{{old($modelname.'_perpage',\App\Helpers\AdminHelper::arrIsset($modelSettings,$modelname.'_perpage',10))}}"  />
 
         @if($datatable)
             <x-form-select-arr  label="{{__('admin/config/settings.set_dataTable')}}" name="{{$modelname}}_datatable" colrow="col-lg-3"

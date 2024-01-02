@@ -28,7 +28,7 @@ class DefPhotoController extends AdminMainController
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| # ClearCash
     public function ClearCash(){
-        foreach ( config('app.lang_file') as $key=>$lang){
+        foreach ( config('app.WebLang') as $key=>$lang){
             Cache::forget('DefPhotoList_Cash_'.$key);
         }
         Cache::forget('DefPhoto_Cash');

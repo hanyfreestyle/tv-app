@@ -18,10 +18,7 @@
                         <x-form-input label="# CatId" name="cat_id" :requiredSpan="true" colrow="col-lg-3"
                                       value="{{old('cat_id',$Page->cat_id)}}" inputclass="dir_en"/>
 
-                        <x-form-select-arr name="banner_id"
-                                           label="{{__('admin/menu.web_banner')}}"
-                                           :sendvalue="old('banner_id',$Page->banner_id)"
-                                           :required-span="false" colrow="col-lg-3 " :send-arr="$BannerCategory"/>
+
                     @else
 
 
@@ -37,7 +34,7 @@
                 </div>
                 <hr>
                 <div class="row">
-                    @foreach ( config('app.lang_file') as $key=>$lang )
+                    @foreach ( config('app.WebLang') as $key=>$lang )
                         <div class="col-lg-6 {{getColDir($key)}}">
                             <x-trans-input
                                 label="{{__('admin/def.form_name_'.$key)}} ({{ $key}})"
@@ -53,20 +50,13 @@
 
 
 
-                <x-meta-tage-filde :body-h1="true" :breadcrumb="true"  :old-data="$Page" :placeholder="false" :page-data="$pageData"  />
+                <x-meta-tage-filde :old-data="$Page" :placeholder="false" :page-data="$pageData" :slug="false" />
                 <hr>
 
-{{--                <div class="row">--}}
-{{--                    <x-form-check-active :row="$Page" name="is_active" page-view="{{$pageData['ViewType']}}"/>--}}
-{{--                    <x-form-check-active :row="$Page" name="menu_main" lable="{{__('admin/page.menu_footer')}}" page-view="{{$pageData['ViewType']}}"/>--}}
-{{--                    <x-form-check-active :row="$Page" name="menu_footer" lable="{{__('admin/page.menu_main')}}" page-view="{{$pageData['ViewType']}}"/>--}}
-{{--                </div>--}}
-{{--                <hr>--}}
                 <x-form-upload-file view-type="{{$pageData['ViewType']}}" :row-data="$Page"
                                     :multiple="false"
                                     thisfilterid="{{ \App\Helpers\AdminHelper::arrIsset($modelSettings,$controllerName.'_filterid',0) }}"
                                     :emptyphotourl="$PrefixRoute.'.emptyPhoto'"  />
-
 
                 <div class="container-fluid">
                     <x-form-submit text="{{$pageData['ViewType']}}" />

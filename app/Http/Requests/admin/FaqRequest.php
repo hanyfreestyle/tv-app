@@ -26,7 +26,7 @@ class FaqRequest extends FormRequest
         ];
 
 
-        foreach(config('app.lang_file') as $key=>$lang){
+        foreach(config('app.WebLang') as $key=>$lang){
             $rules[$key.".name"] =   'required';
             $rules[$key.".des"] =   'required';
             $rules[$key.".url"] =   'nullable|url';

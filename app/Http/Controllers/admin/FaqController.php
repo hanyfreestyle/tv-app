@@ -71,7 +71,7 @@ class FaqController extends AdminMainController
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| # ClearCash
     public function ClearCash(){
-        foreach ( config('app.lang_file') as $key=>$lang){
+        foreach ( config('app.WebLang') as $key=>$lang){
             Cache::forget('Faq_Cash_'.$key);
         }
     }
@@ -144,7 +144,7 @@ class FaqController extends AdminMainController
         $saveData->FaqToCategories()->sync($categories);
 
 
-        foreach ( config('app.lang_file') as $key=>$lang) {
+        foreach ( config('app.WebLang') as $key=>$lang) {
             $saveTranslation = FaqTranslation::where('faq_id',$saveData->id)->where('locale',$key)->firstOrNew();
             $saveTranslation->faq_id = $saveData->id;
             $saveTranslation->locale = $key;

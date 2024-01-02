@@ -62,7 +62,7 @@ class TempController extends AdminMainController
 
         $saveData->save();
 
-        foreach ( config('app.lang_file') as $key=>$lang) {
+        foreach ( config('app.WebLang') as $key=>$lang) {
             $saveTranslation = AmenityTranslation::where('amenity_id',$saveData->id)->where('locale',$key)->firstOrNew();
             $saveTranslation->amenity_id = $saveData->id;
             $saveTranslation->locale = $key;

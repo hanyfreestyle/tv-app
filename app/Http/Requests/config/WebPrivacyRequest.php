@@ -18,7 +18,7 @@ class WebPrivacyRequest extends FormRequest
         $rules =[
             'name'=> "required",
         ];
-        foreach(config('app.lang_file') as $key=>$lang){
+        foreach(config('app.WebLang') as $key=>$lang){
             $rules[$key.".h1"] =   'required';
         }
         return $rules;

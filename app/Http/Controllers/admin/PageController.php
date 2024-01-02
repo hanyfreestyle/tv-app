@@ -71,7 +71,7 @@ class PageController extends AdminMainController
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| # ClearCash
     public function ClearCash(){
-        foreach ( config('app.lang_file') as $key=>$lang){
+        foreach ( config('app.WebLang') as $key=>$lang){
             Cache::forget('PagesList_Cash_'.$key);
         }
     }
@@ -105,8 +105,7 @@ class PageController extends AdminMainController
         $pageData = $this->pageData;
         $pageData['ViewType'] = "Add";
         $Page = new Page();
-        $BannerCategory = BannerCategory::all();
-        return view('admin.pages.page_form',compact('pageData','Page','BannerCategory'));
+        return view('admin.pages.page_form',compact('pageData','Page'));
     }
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -116,8 +115,7 @@ class PageController extends AdminMainController
         $pageData = $this->pageData;
         $pageData['ViewType'] = "Edit";
         $Page = Page::findOrFail($id);
-        $BannerCategory = BannerCategory::all();
-        return view('admin.pages.page_form',compact('pageData','Page','BannerCategory'));
+        return view('admin.pages.page_form',compact('pageData','Page'));
     }
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| #     storeUpdate
@@ -128,10 +126,6 @@ class PageController extends AdminMainController
         $saveData =  Page::findOrNew($id) ;
         $saveData->cat_id = $request->input('cat_id');
         $saveData->banner_id = $request->input('banner_id');
-
-//        $saveData->is_active = intval((bool) $request->input( 'is_active'));
-//        $saveData->menu_main = intval((bool) $request->input( 'menu_main'));
-//        $saveData->menu_footer = intval((bool) $request->input( 'menu_footer'));
 
         $saveData->is_active = 1;
         $saveData->menu_main = 1;
@@ -147,7 +141,7 @@ class PageController extends AdminMainController
         $saveData = AdminHelper::saveAndDeletePhoto($saveData,$saveImgData);
         $saveData->save();
 
-        foreach ( config('app.lang_file') as $key=>$lang) {
+        foreach ( config('app.WebLang') as $key=>$lang) {
             $saveTranslation = PageTranslation::where('page_id',$saveData->id)->where('locale',$key)->firstOrNew();
             $saveTranslation->page_id = $saveData->id;
             $saveTranslation->locale = $key;

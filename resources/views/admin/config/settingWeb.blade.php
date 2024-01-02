@@ -36,7 +36,7 @@
                     <x-ui-card title="الاعدادات العامة" :add-form-error="false"  >
 
                         <div class="row">
-                            @foreach ( config('app.lang_file') as $key=>$lang )
+                            @foreach ( config('app.WebLang') as $key=>$lang )
                                 <div class="col-lg-6 {{getColDir($key)}}">
 
                                     <x-trans-input
@@ -84,7 +84,7 @@
                             <x-form-select-arr  label="{{ __('admin/config/settings.web_top_header_offer') }}" name="top_offer" colrow="col-lg-6"
                                                 sendvalue="{{old('top_offer',$setting->top_offer)}}" select-type="selActive"/>
 
-                            @foreach ( config('app.lang_file') as $key=>$lang )
+                            @foreach ( config('app.WebLang') as $key=>$lang )
                                 <div class="col-lg-12 {{getColDir($key)}}">
 
                                     <x-trans-input

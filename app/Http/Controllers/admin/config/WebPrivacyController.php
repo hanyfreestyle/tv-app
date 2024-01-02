@@ -78,7 +78,7 @@ class WebPrivacyController extends AdminMainController
         $saveData->name = $request->input('name');
         $saveData->save();
 
-        foreach ( config('app.lang_file') as $key=>$lang) {
+        foreach ( config('app.WebLang') as $key=>$lang) {
             $saveTranslation = WebPrivacyTranslation::where('privacy_id',$saveData->id)->where('locale',$key)->firstOrNew();
             $saveTranslation->privacy_id = $saveData->id;
             $saveTranslation->locale = $key;

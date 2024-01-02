@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="row">
-                    @foreach ( config('app.lang_file') as $key=>$lang )
+                    @foreach ( config('app.WebLang') as $key=>$lang )
                         <div class="col-lg-6 {{getColDir($key)}}">
                             <x-trans-input
                                 label="{{__('admin/form.faq_question_'.$key)}} ({{ $key}})"

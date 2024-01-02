@@ -4,9 +4,8 @@
     <input value="{{env('MIN_G_D')}}" id="minD"  type="hidden" >
     <input value="{{env('MAX_G_D')}}" id="maxD"  type="hidden" >
 
-    @foreach ( config('app.lang_file') as $key=>$lang )
+    @foreach ( config('app.WebLang') as $key=>$lang )
         <div class="col-lg-6 {{getColDir($key)}}">
-
 
             <x-trans-input :placeholder="$placeholder"
                 label="{{__('admin/form.meta_g_title_'.$key)}} ({{ ($key) }})"

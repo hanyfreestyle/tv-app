@@ -66,7 +66,7 @@ class FaqCategoryController extends AdminMainController
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| # ClearCash
     public function ClearCash(){
-        foreach ( config('app.lang_file') as $key=>$lang){
+        foreach ( config('app.WebLang') as $key=>$lang){
             Cache::forget('Faq_Cash_'.$key);
         }
     }
@@ -133,7 +133,7 @@ class FaqCategoryController extends AdminMainController
         $saveData = AdminHelper::saveAndDeletePhoto($saveData,$saveImgData);
         $saveData->save();
 
-        foreach ( config('app.lang_file') as $key=>$lang) {
+        foreach ( config('app.WebLang') as $key=>$lang) {
             $saveTranslation = FaqCategoryTranslation::where('category_id',$saveData->id)->where('locale',$key)->firstOrNew();
             $saveTranslation->category_id = $saveData->id;
             $saveTranslation->locale = $key;

@@ -11,7 +11,7 @@
             <form  class="mainForm" action="{{route($PrefixRoute.'.update',intval($Category->id))}}" method="post"  enctype="multipart/form-data">
                 @csrf
                 <div class="row">
-                    @foreach ( config('app.lang_file') as $key=>$lang )
+                    @foreach ( config('app.WebLang') as $key=>$lang )
                         <div class="col-lg-6 {{getColDir($key)}}">
                             <x-trans-input
                                 label="{{__('admin/def.form_name_'.$key)}} ({{ $key}})"

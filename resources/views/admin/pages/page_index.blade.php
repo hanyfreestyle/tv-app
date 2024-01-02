@@ -27,7 +27,6 @@
                             <th class="TD_20">#</th>
                             <th class="TD_20"></th>
                             <th class="TD_20">CatId</th>
-                            <th>{{__('admin/def.form_name_ar')}}</th>
                             <th>{{__('admin/def.form_name_en')}}</th>
                             @if($pageData['ViewType'] == 'deleteList')
                                 <th>{{ __('admin/page.del_date') }}</th>
@@ -36,9 +35,6 @@
                             @else
                                 <th class="tbutaction TD_250">{{__('admin/form.meta_g_title_'.thisCurrentLocale())}}</th>
                                 <th class="tbutaction TD_50"></th>
-{{--                                <th class="tbutaction TD_50">Menu</th>--}}
-{{--                                <th class="tbutaction TD_50">Footer</th>--}}
-
                                 @can($PrefixRole.'_edit')
                                     <th class="tbutaction TD_50"></th>
                                 @endcan
@@ -55,8 +51,8 @@
                                 <td class="tc">{!!  \App\Helpers\AdminHelper::printTableImage($Page) !!} </td>
                                 <td>{{$Page->cat_id}}</td>
 
-                                <td>{{ $Page->translate('ar')->name}}</td>
-                                <td>{{ $Page->translate('en')->name}}</td>
+                                <td>{{ $Page->name}}</td>
+
 
                                 @if($pageData['ViewType'] == 'deleteList')
                                     <td>{{$Page->deleted_at}}</td>
@@ -64,10 +60,7 @@
                                     <td class="tc"><x-action-button url="#" id="{{route($PrefixRoute.'.force',$Page->id)}}" type="deleteSweet"/></td>
                                 @else
                                     <td>{{$Page->translate(thisCurrentLocale())->g_title}}</td>
-
                                     <td class="tc" >{!! is_active($Page->is_active) !!}</td>
-{{--                                    <td class="tc" >{!! is_active($Page->menu_main) !!}</td>--}}
-{{--                                    <td class="tc" >{!! is_active($Page->menu_footer) !!}</td>--}}
                                     @can($PrefixRole.'_edit')
                                         <td class="tc"><x-action-button url="{{route($PrefixRoute.'.edit',$Page->id)}}" type="edit" :tip="true" /></td>
                                     @endcan
