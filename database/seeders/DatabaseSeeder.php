@@ -79,22 +79,6 @@ class DatabaseSeeder extends Seeder
         $this->call(WebPrivacySeeder::class);
         $this->call(WebPrivacyTranslationSeeder::class);
 
-
-        $this->call(CategorySeeder::class);
-        $this->call(CategoryTranslationSeeder::class);
-        $this->call(AttributeTableSeeder::class);
-        $this->call(AttributeTableTranslationSeeder::class);
-
-        $this->call(CategoryTableSeeder::class);
-        $this->call(CategoryTableTranslationSeeder::class);
-
-        $this->call(ProductSeeder::class);
-        $this->call(ProductTranslationSeeder::class);
-        $this->call(ProductTableSeeder::class);
-        $this->call(ProductTableTranslationSeeder::class);
-        $this->call(ProductPhotoSeeder::class);
-        $this->call(ProductCategorySeeder::class);
-
         $this->call(OurClientSeeder::class);
         $this->call(OurClientTranslationSeeder::class);
 
