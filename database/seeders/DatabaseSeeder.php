@@ -70,8 +70,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(FaqPivotSeeder::class);
 
-//        $this->call(PageSeeder::class);
-//        $this->call(PageTranslationSeeder::class);
+        $this->call(PageSeeder::class);
+        $this->call(PageTranslationSeeder::class);
 
 
         $this->call(DataCitySeeder::class);

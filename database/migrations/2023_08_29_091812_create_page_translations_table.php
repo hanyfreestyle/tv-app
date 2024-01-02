@@ -13,16 +13,10 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('page_id')->unsigned();
             $table->string('locale')->index();
-            $table->string('slug')->nullable();
             $table->string('name')->nullable();
             $table->string('g_title')->nullable();
             $table->text('g_des')->nullable();
-            $table->string('body_h1')->nullable();
-            $table->string('breadcrumb')->nullable();
-
             $table->unique(['page_id','locale']);
-            $table->unique(['locale','slug']);
-
             $table->foreign('page_id')->references('id')->on('pages')->onDelete('cascade');
         });
     }

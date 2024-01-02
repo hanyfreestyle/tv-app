@@ -121,16 +121,9 @@ class PageController extends AdminMainController
 #|||||||||||||||||||||||||||||||||||||| #     storeUpdate
     public function storeUpdate(PageRequest $request, $id='0')
     {
-
-
         $saveData =  Page::findOrNew($id) ;
         $saveData->cat_id = $request->input('cat_id');
-        $saveData->banner_id = $request->input('banner_id');
-
         $saveData->is_active = 1;
-        $saveData->menu_main = 1;
-        $saveData->menu_footer = 1;
-
         $saveData->save();
 
         $saveImgData = new PuzzleUploadProcess();
@@ -145,12 +138,9 @@ class PageController extends AdminMainController
             $saveTranslation = PageTranslation::where('page_id',$saveData->id)->where('locale',$key)->firstOrNew();
             $saveTranslation->page_id = $saveData->id;
             $saveTranslation->locale = $key;
-            $saveTranslation->slug = AdminHelper::Url_Slug($request->input($key.'.slug'));
             $saveTranslation->name = $request->input($key.'.name');
             $saveTranslation->g_title = $request->input($key.'.g_title');
             $saveTranslation->g_des = $request->input($key.'.g_des');
-            $saveTranslation->body_h1 = $request->input($key.'.body_h1');
-            $saveTranslation->breadcrumb = $request->input($key.'.breadcrumb');
             $saveTranslation->save();
         }
 

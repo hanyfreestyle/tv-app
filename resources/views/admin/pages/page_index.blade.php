@@ -26,14 +26,14 @@
                         <tr>
                             <th class="TD_20">#</th>
                             <th class="TD_20"></th>
-                            <th class="TD_20">CatId</th>
-                            <th>{{__('admin/def.form_name_en')}}</th>
+                            <th class="TD_100">CatId</th>
+                            <th class="TD_200" >{{__('admin/def.form_name_en')}}</th>
                             @if($pageData['ViewType'] == 'deleteList')
-                                <th>{{ __('admin/page.del_date') }}</th>
+                                <th class="TD_200">{{ __('admin/page.del_date') }}</th>
                                 <th></th>
                                 <th></th>
                             @else
-                                <th class="tbutaction TD_250">{{__('admin/form.meta_g_title_'.thisCurrentLocale())}}</th>
+                                <th class="TD_250">{{__('admin/form.meta_g_title_'.thisCurrentLocale())}}</th>
                                 <th class="tbutaction TD_50"></th>
                                 @can($PrefixRole.'_edit')
                                     <th class="tbutaction TD_50"></th>
