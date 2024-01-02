@@ -34,12 +34,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get(LaravelLocalization::transRoute('routes.AboutUs'),
         [WebPageController::class, 'AboutUs'])->name('Page_AboutUs');
 
-    Route::get(LaravelLocalization::transRoute('routes.OurClient'),
-        [WebPageController::class, 'OurClient'])->name('Page_OurClient');
-
-    Route::get(LaravelLocalization::transRoute('routes.Careers'),
-        [WebPageController::class, 'Careers'])->name('Page_Careers');
-
 
     Route::get(LaravelLocalization::transRoute('routes.ContactUs'),
         [WebPageController::class, 'ContactUs'])->name('Page_ContactUs');
@@ -60,24 +54,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
     Route::get(LaravelLocalization::transRoute('routes.FaqCatView'),
         [WebPageController::class, 'FaqCatView'])->name('Page_FaqCatView');
-
-
-    Route::get(LaravelLocalization::transRoute('routes.LatestNews'),
-        [WebPageController::class, 'LatestNews'])->name('Page_LatestNews');
-
-    Route::get(LaravelLocalization::transRoute('routes.LatestNews_View'),
-        [WebPageController::class, 'LatestNews_View'])->name('LatestNews_View');
-
-
-    Route::get(LaravelLocalization::transRoute('routes.MainCategory'),
-        [WebPageController::class, 'MainCategory'])->name('Page_MainCategory');
-
-    Route::get(LaravelLocalization::transRoute('routes.WebCategoryView'),
-        [WebPageController::class, 'WebCategoryView'])->name('Page_WebCategoryView');
-
-    Route::get(LaravelLocalization::transRoute('routes.WebProductView'),
-        [WebPageController::class, 'WebProductView'])->name('Page_WebProductView');
-
 
 
 

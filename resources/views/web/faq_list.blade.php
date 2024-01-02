@@ -6,24 +6,18 @@
 @endsection
 @section('content')
 
-    <div class="section faqcat_list pt-0 pt-lg-3">
+    <div class="sectionS faqcat_list pt-0">
 
         <div class="container">
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="def_h1 text-center" >{{$PageMeta->body_h1}}</h1>
-                    <p class="text-center def_gdes">{{$PageMeta->g_des}}</p>
-                </div>
-            </div>
-
-
-            <div class="row mt-3 mt-lg-4">
+           <div class="row">
                 <div class="col-12">
                     <div class=" pb-5">
                         <div class="row">
                             @foreach($FaqCategories as $Category )
-                                <div class="col-md-4 mb-lg-3">
+                                <div class="col-lg-3">
+
+
+
                                     <div class="icon_box icon_box_style2">
 
                                         <div class="icon faq_icon">
@@ -41,6 +35,8 @@
                                             </span>
                                         </div>
                                     </div>
+
+
                                 </div>
 
                             @endforeach

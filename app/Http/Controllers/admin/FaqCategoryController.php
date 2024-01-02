@@ -141,9 +141,9 @@ class FaqCategoryController extends AdminMainController
             $saveTranslation->name = $request->input($key.'.name');
 
             $saveTranslation->slug = AdminHelper::Url_Slug($request->input($key.'.slug'));
-//            $saveTranslation->des = $request->input($key.'.des');
-//            $saveTranslation->g_title = $request->input($key.'.g_title');
-//            $saveTranslation->g_des = $request->input($key.'.g_des');
+            $saveTranslation->des = $request->input($key.'.des');
+            $saveTranslation->g_title = $request->input($key.'.g_title');
+            $saveTranslation->g_des = $request->input($key.'.g_des');
             $saveTranslation->save();
         }
 

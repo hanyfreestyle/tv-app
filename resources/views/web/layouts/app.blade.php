@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" >
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"  dir="ltr">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,7 +33,7 @@
     @yield('AddStyle')
     @livewireStyles
 </head>
-<body {!! htmlArDir() !!}>
+<body dir="ltr">
 
 <x-website.html-loader/>
 
@@ -56,33 +56,18 @@
 
 <!-- Latest jQuery -->
 <script src="{{ defWebAssets('js/jquery-3.6.0.min.js') }}"></script>
-<!-- jquery-ui -->
 <script src="{{ defWebAssets('js/jquery-ui.js') }}"></script>
-
-<!-- popper min js -->
 <script src="{{ defWebAssets('js/popper.min.js') }}"></script>
-<!-- Latest compiled and minified Bootstrap -->
 <script src="{{ defWebAssets('bootstrap/js/bootstrap.min.js') }}"></script>
-
-<!-- owl-carousel min js  -->
 <script src="{{ defWebAssets('owlcarousel/js/owl.carousel.min.js') }}"></script>
-<!-- magnific-popup min js  -->
 <script src="{{ defWebAssets('js/magnific-popup.min.js') }}"></script>
-<!-- waypoints min js  -->
 <script src="{{ defWebAssets('js/waypoints.min.js') }}"></script>
-<!-- parallax js  -->
 <script src="{{ defWebAssets('js/parallax.js') }}"></script>
-<!-- countdown js  -->
 <script src="{{ defWebAssets('js/jquery.countdown.min.js') }}"></script>
-<!-- imagesloaded js -->
 <script src="{{ defWebAssets('js/imagesloaded.pkgd.min.js') }}"></script>
-<!-- isotope min js -->
 <script src="{{ defWebAssets('js/isotope_en.min.js') }}"></script>
-<!-- jquery.dd.min js -->
 <script src="{{ defWebAssets('js/jquery.dd.min.js') }}"></script>
-<!-- slick js -->
 <script src="{{ defWebAssets('js/slick.min.js') }}"></script>
-
 <script src="{{ defWebAssets('js/jquery.show-more.js') }}"></script>
 
 @yield('AddScript')

@@ -22,22 +22,22 @@
                                 value="{{old($key.'.name',$Category->translateOrNew($key)->name)}}"
                             />
 
-                            <x-trans-input
-                                label="Slug ({{ ($key) }})"
-                                inputid="slug_{{ $key }}"
-                                name="{{ $key }}[slug]"
-                                dir="{{ $key }}"
-                                reqname="{{ $key }}.slug"
-                                value="{{old($key.'.slug',$Category->translateOrNew($key)->slug)}}"
-                                :reqspan="true"
-                            />
+{{--                            <x-trans-input--}}
+{{--                                label="Slug ({{ ($key) }})"--}}
+{{--                                inputid="slug_{{ $key }}"--}}
+{{--                                name="{{ $key }}[slug]"--}}
+{{--                                dir="{{ $key }}"--}}
+{{--                                reqname="{{ $key }}.slug"--}}
+{{--                                value="{{old($key.'.slug',$Category->translateOrNew($key)->slug)}}"--}}
+{{--                                :reqspan="true"--}}
+{{--                            />--}}
 
                         </div>
                     @endforeach
                 </div>
 
                 <hr>
-
+                <x-meta-tage-filde :old-data="$Category" :placeholder="false" :page-data="$pageData" />
                 <div class="row">
                     <x-form-check-active :row="$Category" name="is_active" page-view="{{$pageData['ViewType']}}"/>
                 </div>

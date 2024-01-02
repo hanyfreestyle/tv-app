@@ -32,10 +32,10 @@
                                     <div class="col-lg-12">
                                         @foreach($FaqCategory->faqs as $Faq )
                                             <x-website.faq-slider :title="$Faq->name" :prefix="$Faq->id" :loop="$loop->index">
-                                                {!! nl2br($Faq->des) !!}
-                                                <div class="other_faq">
-                                                    {!! ($Faq->other) !!}
-                                                </div>
+                                                {!! ($Faq->des) !!}
+{{--                                                <div class="other_faq">--}}
+{{--                                                    {!! nl2br($Faq->other) !!}--}}
+{{--                                                </div>--}}
 
 
                                             </x-website.faq-slider>

@@ -48,7 +48,7 @@ class FaqCategory extends Model implements TranslatableContract , LocalizedUrlRo
             ->with('translation')
             ->with('faqs')
             ->withCount('faqs')
-            ->orderBy('faqs_count','DESC')
+            ->orderBy('faqs_count','asc')
             ;
     }
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

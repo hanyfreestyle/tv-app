@@ -201,13 +201,16 @@
 .faq_logo img{
     max-width: 90%;
     margin: auto;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
 }
 
 .faq_logo h3{
-    font-size: 15px;
+    font-size: 16px;
     text-align: center;
-    line-height: 25px;
+    line-height: 20px;
+    color: red;
+    font-weight: bold;
 }
 
 .blog_post_card .blog_title{font-size:16px;font-weight:600;line-height:28px;min-height:60px;margin-bottom:2px}
@@ -902,7 +905,7 @@
     }
 
     .scrollup{
-        bottom: 85px!important;
+        bottom: 30px!important;
     }
 
 

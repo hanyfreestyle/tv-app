@@ -31,7 +31,7 @@
                                 inputid="name_{{ $key }}"
                                 dir="{{ $key }}"
                                 reqname="{{ $key }}.name"
-                                value="{{old($key.'.name',$Faq->translateOrNew($key)->name)}}"
+                                value="{!! old($key.'.name',$Faq->translateOrNew($key)->name) !!}"
                             />
 
                             <x-trans-text-area
@@ -97,14 +97,21 @@
     @if($viewEditor)
         <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
         <script>
-            CKEDITOR.config.height = 450;
+            CKEDITOR.config.height = 300;
             //  CKEDITOR.config.contentsCss = "https://realestate.eg/css/bootstrap.min.css";
             CKEDITOR.replace('en[other]');
-            CKEDITOR.replace('ar[other]', {
-                contentsLangDirection: 'rtl',
+            CKEDITOR.replace('es[other]', {
+                contentsLangDirection: 'ltr',
             });
         </script>
-
+        <script>
+            CKEDITOR.config.height = 300;
+            //  CKEDITOR.config.contentsCss = "https://realestate.eg/css/bootstrap.min.css";
+            CKEDITOR.replace('en[des]');
+            CKEDITOR.replace('es[des]', {
+                contentsLangDirection: 'ltr',
+            });
+        </script>
     @endif
 
     <x-slug-name-script :pagetype="$pageData['ViewType']" />

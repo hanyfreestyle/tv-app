@@ -104,8 +104,8 @@
             newRowAdd =
                 '<div id="row" class="row">' +
                 '<div class="col-3"><input type="text" class="form-control dir_en" value="" name="key[]"></div>' +
-                '<div class="col-4"><textarea type="text" class="form-control dir_ar" value="" name="ar[]"></textarea></div>' +
-                '<div class="col-4"><textarea type="text" class="form-control dir_en" value="" name="en[]"></textarea></div>' +
+                '<div class="col-4"><textarea type="text" class="form-control dir_ar" value="" name="en[]"></textarea></div>' +
+                '<div class="col-4"><textarea type="text" class="form-control dir_en" value="" name="es[]"></textarea></div>' +
                 '<div class="col-1"><button class="btn btn-danger" id="DeleteRow" type="button"><i class="fas fa-trash"></i></button></div>' +
                 '<div class="row col-12"> <hr/> </div>'+
                 '</div>';

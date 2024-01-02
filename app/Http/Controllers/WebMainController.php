@@ -79,8 +79,8 @@ class WebMainController extends Controller
             $defImage = defImagesDir($defImage);
         }
 
-        SEOMeta::setTitle($row->translate($lang)->g_title ?? "");
-        SEOMeta::setDescription($row->translate($lang)->g_des ?? "");
+        SEOMeta::setTitle($row->translate($lang)->g_title ?? $row->translate($lang)->name);
+        SEOMeta::setDescription($row->translate($lang)->g_des ?? $row->translate($lang)->name);
         SEOMeta::addMeta('article:published_time', $row->published_at ?? "" , 'property');
 
         OpenGraph::setTitle($row->translate($lang)->g_title ?? "");
