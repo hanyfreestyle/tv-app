@@ -11,6 +11,7 @@ return
 	'form_currentPhoto' => 'Current Photo',
 	'form_name_ar' => 'Name',
 	'form_name_en' => 'Name',
+	'form_name_es' => 'Name',
 	'form_selectFilterLable' => 'Please select Filter',
 	'form_selectFilterMorePhoto' => 'More Photo Filter',
 	'icon' => 'Icon',
@@ -22,7 +23,7 @@ return
 	'published_at' => 'Published at',
 	'status' => 'Status',
 	'status_active' => 'Active',
+	'status_archived' => 'Archived',
 	'status_unactive' => 'UnActive',
 	'table_info' => 'Information Table',
-	'status_archived' => 'Archived',
 ];

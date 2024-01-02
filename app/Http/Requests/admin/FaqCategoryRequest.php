@@ -35,11 +35,11 @@ class FaqCategoryRequest extends FormRequest
 
         foreach(config('app.WebLang') as $key=>$lang){
             $rules[$key.".name"] =   'required';
-            $rules[$key.".des"] =   'required';
-            $rules[$key.".g_title"] =   'required';
-            $rules[$key.".g_des"] =   'required';
+//            $rules[$key.".des"] =   'required';
+//            $rules[$key.".g_title"] =   'required';
+//            $rules[$key.".g_des"] =   'required';
             if($id == '0'){
-                $rules[$key.".slug"] = 'required|unique:faq_category_translations,slug';
+             $rules[$key.".slug"] = 'required|unique:faq_category_translations,slug';
             }else{
                 $rules[$key.".slug"] = "required|unique:faq_category_translations,slug,$id,category_id,locale,$key";
             }

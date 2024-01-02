@@ -22,21 +22,19 @@
                                 value="{{old($key.'.name',$Category->translateOrNew($key)->name)}}"
                             />
 
-                            <x-trans-text-area
-                                label="{{ __('admin/form.des_'.$key)}} ({{ ($key) }})"
-                                name="{{ $key }}[des]"
+                            <x-trans-input
+                                label="Slug ({{ ($key) }})"
+                                inputid="slug_{{ $key }}"
+                                name="{{ $key }}[slug]"
                                 dir="{{ $key }}"
-                                reqname="{{ $key }}.des"
-
-                                value="{!! old($key.'.des',$Category->translateOrNew($key)->des) !!}"
+                                reqname="{{ $key }}.slug"
+                                value="{{old($key.'.slug',$Category->translateOrNew($key)->slug)}}"
+                                :reqspan="true"
                             />
 
                         </div>
                     @endforeach
                 </div>
-
-                <x-meta-tage-filde :old-data="$Category" :placeholder="false" :page-data="$pageData" />
-
 
                 <hr>
 

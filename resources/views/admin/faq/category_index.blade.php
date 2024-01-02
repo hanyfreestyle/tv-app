@@ -43,8 +43,8 @@
                             <tr>
                                 <td>{{$Category->id}}</td>
                                 <td class="tc">{!!  \App\Helpers\AdminHelper::printTableImage($Category) !!} </td>
-                                <td>{{ $Category->translate('ar')->name}}</td>
                                 <td>{{ $Category->translate('en')->name}}</td>
+                                <td>{{ $Category->translate('es')->name}}</td>
 
                                 @if($pageData['ViewType'] == 'deleteList')
                                     <td>{{$Category->deleted_at}}</td>

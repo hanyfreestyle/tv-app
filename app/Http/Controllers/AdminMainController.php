@@ -133,7 +133,15 @@ class AdminMainController extends Controller
     }
 
 
+    public function NotsetData($request,$sours,$def){
 
+        if($request->$sours == null){
+            $data = $request->$def ;
+        }else{
+            $data = $request->$sours ;
+        }
+        return $data ;
+    }
 
 
 }

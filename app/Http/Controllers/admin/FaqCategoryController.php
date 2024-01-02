@@ -121,6 +121,7 @@ class FaqCategoryController extends AdminMainController
 #|||||||||||||||||||||||||||||||||||||| #     storeUpdate
     public function storeUpdate(FaqCategoryRequest $request, $id=0)
     {
+
         $saveData =  FaqCategory::findOrNew($id);
         $saveData->is_active = intval((bool) $request->input( 'is_active'));
         $saveData->save();
@@ -138,12 +139,14 @@ class FaqCategoryController extends AdminMainController
             $saveTranslation->category_id = $saveData->id;
             $saveTranslation->locale = $key;
             $saveTranslation->name = $request->input($key.'.name');
+
             $saveTranslation->slug = AdminHelper::Url_Slug($request->input($key.'.slug'));
-            $saveTranslation->des = $request->input($key.'.des');
-            $saveTranslation->g_title = $request->input($key.'.g_title');
-            $saveTranslation->g_des = $request->input($key.'.g_des');
+//            $saveTranslation->des = $request->input($key.'.des');
+//            $saveTranslation->g_title = $request->input($key.'.g_title');
+//            $saveTranslation->g_des = $request->input($key.'.g_des');
             $saveTranslation->save();
         }
+
 
         self::ClearCash();
 
