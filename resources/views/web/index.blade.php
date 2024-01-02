@@ -32,41 +32,7 @@
 
 
 
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="heading_tab_header">
-                    <div class="heading_s2">
-                        <h2 class="def_h2">{{__('web/def.Main_Categories')}}</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="client_logo carousel_slider owl-carousel owl-theme nav_style3" data-dots="false" data-nav="true" data-margin="30" data-loop="true" data-autoplay="true" data-responsive='{"0":{"items": "2"}, "480":{"items": "3"}, "767":{"items": "4"}, "991":{"items": "5"}}'>
-                    @foreach($MenuCategory as $MainCategory)
 
-                        <a href="">
-
-                            <div class="item">
-                                <div class="cl_logoX">
-                                    <img src="{{ getPhotoPath($MainCategory->photo ,'faq-icon') }}" alt="cl_logo"/>
-
-                                </div>
-
-                                <h3 class="def_h4 text-center mt-3">{{$MainCategory->name}}</h3>
-                            </div>
-                        </a>
-
-
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 

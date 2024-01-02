@@ -24,13 +24,8 @@ class WebPageController extends WebMainController
     {
         parent::__construct();
         $stopCash =0;
-        $MenuCategory = self::getMenuCategory($stopCash);
-        View::share('MenuCategory', $MenuCategory);
 
-       // dd($MenuCategory);
-
-
-        $SinglePageView = [
+       $SinglePageView = [
             'SelMenu' => '',
             'slug' => null,
             'banner_id' => null,
