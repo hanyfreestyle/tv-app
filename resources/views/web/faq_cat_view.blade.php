@@ -19,7 +19,7 @@
                                     <div class="col-lg-12">
                                         <div class="icon_box icon_box_style2">
                                             <div class="icon faq_icon">
-                                                <img src="{!! getPhotoPath($FaqCategory->photo_thum_1,"faq-icon") !!}">
+                                                <img src="{!! getPhotoPath($FaqCategory->photo_thum_1,"faq_def") !!}">
                                             </div>
                                             <div class="icon_box_content">
                                                 <h1 class="def_h1"> {{ $FaqCategory->name }}</h1>
@@ -45,7 +45,7 @@
                             </div>
 
                             <div class="col-lg-3 mt-4 pt-2 mt-xl-0 pt-xl-0   d-none  d-lg-block">
-                                @include('web.layouts.inc.sidebar')
+
                             </div>
 
 

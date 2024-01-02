@@ -27,10 +27,10 @@ if (!function_exists('webContainer')) {
 if (!function_exists('webChangeLocale')) {
     function webChangeLocale(){
         $Current =  LaravelLocalization::getCurrentLocale() ;
-        if($Current == 'ar'){
-            $change = 'en';
+        if($Current == 'en'){
+            $change = 'es';
         }else{
-            $change = 'ar';
+            $change = 'en';
         }
         return $change;
     }
@@ -40,10 +40,10 @@ if (!function_exists('webChangeLocale')) {
 if (!function_exists('webChangeLocaletext')) {
     function webChangeLocaletext(){
         $Current =  LaravelLocalization::getCurrentLocale() ;
-        if($Current == 'ar'){
-            $change = 'English';
+        if($Current == 'en'){
+            $change = 'Spanish';
         }else{
-            $change = 'عربى';
+            $change = 'English';
         }
         return $change;
     }

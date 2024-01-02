@@ -14,7 +14,7 @@
                         <div class="item">
                             <a href="{{route($url,$FaqCategory->slug)}}">
                                 <div class="">
-                                    <img src="{{getPhotoPath($FaqCategory->photo,"categorie")}}" alt="cl_logo"/>
+                                    <img src="{{getPhotoPath($FaqCategory->photo,"faq_def")}}" alt="cl_logo"/>
                                 </div>
                                 <h3 class="def_h4 text-center">{{$FaqCategory->name}}</h3>
                             </a>

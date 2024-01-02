@@ -3,15 +3,12 @@
 namespace App\Http\Controllers\web;
 use App\Http\Controllers\WebMainController;
 use App\Http\Requests\data\ContactUsFormRequest;
-use App\Http\Requests\data\NewsLetterRequest;
 use App\Models\admin\BlogPost;
 use App\Models\admin\Category;
 use App\Models\admin\config\WebPrivacy;
 use App\Models\admin\FaqCategory;
-use App\Models\admin\OurClient;
 use App\Models\admin\Product;
 use App\Models\data\ContactUsForm;
-use App\Models\User;
 use Illuminate\Support\Facades\View;
 
 
@@ -77,10 +74,7 @@ class WebPageController extends WebMainController
         $SinglePageView['SelMenu'] = 'ContactUs' ;
         $SinglePageView['breadcrumb'] = "ContactUs" ;
 
-        $FaqCategories = FaqCategory::defWeb()
-            ->get();
-
-//        dd($FaqCategories);
+        $FaqCategories = FaqCategory::defWeb()->get();
 
         return view('web.page_contact_us',compact('SinglePageView','PageMeta','FaqCategories'));
     }
@@ -117,26 +111,6 @@ class WebPageController extends WebMainController
         $saveContactUs->save();
         return redirect()->route('Page_ContactUsThanks');
     }
-
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-#|||||||||||||||||||||||||||||||||||||| #    ContactUs
-    public function Careers ()
-    {
-        $PageMeta = parent::getMeatByCatId('ContactUs');
-        parent::printSeoMeta($PageMeta);
-
-        $SinglePageView = $this->SinglePageView ;
-        $SinglePageView['SelMenu'] = 'Careers' ;
-        $SinglePageView['banner_id'] = $PageMeta->banner_id ;
-        $SinglePageView['banner_count'] = $PageMeta->page_banner_count ;
-        $SinglePageView['banner_list'] = $PageMeta->PageBanner ;
-        $SinglePageView['breadcrumb'] = "ContactUs" ;
-
-        $FaqCategories = FaqCategory::defWeb()
-            ->get();
-        return view('web.page_contact_us',compact('SinglePageView','PageMeta','FaqCategories'));
-    }
-
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| #    TermsConditions
     public function TermsConditions ()
@@ -170,9 +144,6 @@ class WebPageController extends WebMainController
 
         $SinglePageView = $this->SinglePageView ;
         $SinglePageView['SelMenu'] = 'FaqList' ;
-        $SinglePageView['banner_id'] = $PageMeta->banner_id ;
-        $SinglePageView['banner_count'] = $PageMeta->page_banner_count ;
-        $SinglePageView['banner_list'] = $PageMeta->PageBanner ;
         $SinglePageView['breadcrumb'] = "FaqList" ;
 
         $FaqCategories = FaqCategory::defWeb()->paginate(12);
@@ -191,9 +162,9 @@ class WebPageController extends WebMainController
             ->whereTranslation('slug', $slug)
             ->firstOrFail();
 
-        if ($FaqCategory->translate()->where('slug', $slug)->first()->locale != app()->getLocale()) {
-            return redirect()->route('Page_FaqCatView', $FaqCategory->translate()->slug);
-        }
+//        if ($FaqCategory->translate()->where('slug', $slug)->first()->locale != app()->getLocale()) {
+//            return redirect()->route('Page_FaqCatView', $FaqCategory->translate()->slug);
+//        }
 
         $PageMeta = $FaqCategory ;
         parent::printSeoMeta($PageMeta);

@@ -18,9 +18,9 @@
                 @endif
                 <div class="col-lg-8 contactform">
 
-                    <h2 class="def_h2">{{__('web/contact_form.title')}}</h2>
+{{--                    <h2 class="def_h2">{{__('web/contact_form.title')}}</h2>--}}
 
-                    <p class="leads"> {!! __('web/contact_form.des') !!}</p>
+{{--                    <p class="leads"> {!! __('web/contact_form.des') !!}</p>--}}
                     <div class="">
                         <form method="post" action="{{route('Page_ContactSend')}}">
                             @csrf

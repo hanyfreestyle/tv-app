@@ -28,7 +28,7 @@
 
                                         <div class="icon faq_icon">
                                             <a href="{{route('Page_FaqCatView',$Category->slug)}}">
-                                                <img src="{!! getPhotoPath($Category->photo_thum_1,"faq-icon") !!}">
+                                                <img src="{!! getPhotoPath($Category->photo_thum_1,"faq_def") !!}">
                                             </a>
                                         </div>
 

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"  {!!htmlArDir()!!}  >
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" >
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +9,7 @@
 
     <x-website.fav-icon />
     <link rel="stylesheet" href="{{ defWebAssets('css/animate.css') }}">
-    <link rel="stylesheet" href="{{ defWebAssets('bootstrap/css/bootstrap.min_'.thisCurrentLocale().'.css') }}">
+    <link rel="stylesheet" href="{{ defWebAssets('bootstrap/css/bootstrap.min_en.css') }}">
     <link rel="stylesheet" href="{{ defWebAssets('css/all.min.css') }}">
     <link rel="stylesheet" href="{{ defWebAssets('css/ionicons.min.css') }}">
     <link rel="stylesheet" href="{{ defWebAssets('css/themify-icons.css') }}">
@@ -28,12 +28,8 @@
     <link rel="stylesheet" href="{{ defWebAssets('css/style_edit.css') }}">
     <link rel="stylesheet" href="{{ defWebAssets('css/style_def.css') }}">
 
-    @if(thisCurrentLocale() == 'ar')
-        <link rel="stylesheet" href="{{ defWebAssets('css/rtl-style.css') }}">
-    @endif
-
     <link rel="stylesheet" href="{{ defWebAssets('css/custom_style.css') }}">
-    <link rel="stylesheet" href="{{ defWebAssets('css/custom_'.thisCurrentLocale().'.css') }}">
+    <link rel="stylesheet" href="{{ defWebAssets('css/custom_en.css') }}">
     @yield('AddStyle')
     @livewireStyles
 </head>
@@ -67,7 +63,6 @@
 <script src="{{ defWebAssets('js/popper.min.js') }}"></script>
 <!-- Latest compiled and minified Bootstrap -->
 <script src="{{ defWebAssets('bootstrap/js/bootstrap.min.js') }}"></script>
-{{--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>--}}
 
 <!-- owl-carousel min js  -->
 <script src="{{ defWebAssets('owlcarousel/js/owl.carousel.min.js') }}"></script>
@@ -82,7 +77,7 @@
 <!-- imagesloaded js -->
 <script src="{{ defWebAssets('js/imagesloaded.pkgd.min.js') }}"></script>
 <!-- isotope min js -->
-<script src="{{ defWebAssets('js/isotope_'.thisCurrentLocale().'.min.js') }}"></script>
+<script src="{{ defWebAssets('js/isotope_en.min.js') }}"></script>
 <!-- jquery.dd.min js -->
 <script src="{{ defWebAssets('js/jquery.dd.min.js') }}"></script>
 <!-- slick js -->
@@ -98,22 +93,7 @@
 
 <!-- scripts js -->
 <script src="{{ defWebAssets('js/scripts.js') }}"></script>
-
 <script>
-    $(function() {
-        AddReadMore("250","عرض المزيد","عرض اقل");
-    });
-</script>
-<script>
-
-    async function loadarfont(){
-        const font_ar = new FontFace('Tajawal','url({{ defWebAssets('fonts/Ar/TajawalRegular.woff2') }}');
-        await font_ar.load();
-        document.fonts.add(font_ar);
-        document.body.classList.add('Tajawal');
-    };
-    loadarfont();
-
     async function loadarfont_en(){
         const font_en = new FontFace('Poppins','url({{ defWebAssets('fonts/En/Poppins-Regular.woff2') }}');
         await font_en.load();
