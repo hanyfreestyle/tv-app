@@ -7,12 +7,7 @@ use App\Http\Controllers\AdminMainController;
 use App\Http\Controllers\WebMainController;
 use App\Http\Requests\admin\shop\CustomerStoreRequest;
 use App\Http\Requests\admin\shop\CustomerUpdateRequest;
-use App\Http\Requests\customer\ProfileAddressAddRequest;
-use App\Http\Requests\customer\ProfileAddressEditRequest;
-use App\Models\admin\Category;
-use App\Models\admin\Product;
 use App\Models\admin\shop\Customer;
-use App\Models\customer\UserCustomersProduct;
 use App\Models\customer\UsersCustomersAddress;
 use Hash;
 use Illuminate\Http\Request;
@@ -226,7 +221,6 @@ class CustomerController extends AdminMainController
         $customer->password = Hash::make($request->input('new_password'));
         $customer->save();
 
-       // return redirect(route($this->PrefixRoute.'.index'))->with('Edit.Done',"");
         return redirect()->back()->with('Edit.Done',"");
     }
 
@@ -237,7 +231,6 @@ class CustomerController extends AdminMainController
     public function destroy($id)
     {
         $deleteRow = Customer::findOrFail($id);
-        //$deleteRow = AdminHelper::DeleteAllPhotos($deleteRow);
         $deleteRow->delete();
 
         return back()->with('confirmDelete',"");
@@ -262,87 +255,6 @@ class CustomerController extends AdminMainController
     }
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-#|||||||||||||||||||||||||||||||||||||| #
-    public function AddressList($id)
-    {
-        $pageData = $this->pageData;
-        $pageData['ViewType'] = "Edit";
-        $customer = Customer::findOrFail($id);
-        $customer_address = UsersCustomersAddress::where('customer_id',$customer->id)->get();
-        return view('admin.customer.address_list',compact('pageData','customer','customer_address'));
-    }
-
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-#|||||||||||||||||||||||||||||||||||||| #   AddressEdit
-    public function AddressEdit($id)
-    {
-        $pageData = $this->pageData;
-        $pageData['ViewType'] = "Edit";
-        $address = UsersCustomersAddress::where('id',$id)->with('customer')->firstOrFail();
-        return view('admin.customer.address_edit',compact('pageData','address'));
-    }
-
-
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-#|||||||||||||||||||||||||||||||||||||| #     AddressUpdate
-    public function AddressUpdate(ProfileAddressEditRequest $request,$id){
-
-        $address = UsersCustomersAddress::query()
-            ->where('id',$id)
-            ->firstOrFail();
-
-        $address->name = $request->input('name');
-        $address->city_id = $request->input('city_id');
-        $address->recipient_name = $request->input('recipient_name');
-        $address->phone  = $request->input('phone');
-        $address->phone_option  = $request->input('phone_option');
-        $address->address = $request->input('address');
-        $address->save();
-
-        return redirect()->route('ShopCustomer.Customer.Address',$address->customer_id)->with('Update.Done',"");
-
-    }
-
-
-
-
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-#|||||||||||||||||||||||||||||||||||||| #     AddressStore
-    public function AddressStore (ProfileAddressAddRequest $request,$id)
-    {
-        $customer = Customer::where('id',$id)
-            ->withCount('addresses')
-            ->firstOrFail();
-
-
-
-        $saveAddress = New UsersCustomersAddress ;
-
-        if($customer->addresses_count == 0){
-            $saveAddress->is_default = true ;
-            $saveAddress->name = "العنوان الافتراضى";
-        }else{
-            $saveAddress->name = 'العنوان '. $customer->addresses_count+1;
-        }
-
-        $saveAddress->uuid = Str::uuid()->toString();
-        $saveAddress->customer_id = $customer->id ;
-
-        $saveAddress->city_id = $request->input('city_id');
-        $saveAddress->recipient_name = $request->input('recipient_name');
-
-        $saveAddress->phone  = $request->input('phone');
-        $saveAddress->phone_option  = $request->input('phone_option');
-        $saveAddress->address = $request->input('address');
-        $saveAddress->save();
-
-
-        return redirect()->back();
-    }
-
-
-
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| #     config
     public function config()
     {
@@ -352,126 +264,4 @@ class CustomerController extends AdminMainController
         return view('admin.customer.config',compact('pageData'));
     }
 
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-#|||||||||||||||||||||||||||||||||||||| #     ExportLogin
-    public function ExportLogin()
-    {
-        $pageData = $this->pageData;
-        $pageData['TitlePage'] = __('admin/def.model_config');
-        $pageData['ViewType'] = "List";
-
-        $customers = Customer::query()
-            ->where('password_temp','!=',null)
-            ->where('last_login',null)
-            ->with('addresses_def')
-            ->get();
-
-        return view('admin.customer.export_login',compact('pageData', 'customers'));
-    }
-
-
-
-
-
-
-
-
-
-
-
-//#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-//#|||||||||||||||||||||||||||||||||||||| #     FavProductsListAjax
-//    public function FavProductsListAjaxXX(Request $request){
-//        $categoryid = $request->categoryid;
-//        $category = Category::where('id',$categoryid)->first();
-//
-//
-//        return response()->json(
-//            [
-//                'product_id'=>$categoryid,
-//
-//            ]
-//        );
-//
-//
-////        $products = Product::query()
-////            ->where('pro_shop',true)
-////            ->with('product_with_category')
-////            ->whereHas('product_with_category',function($query){
-////                $query->where('category_id',39);
-////            })
-////            //->whereIn('id',$customersProduct)
-////            ->whereNotIn('id',$customersProduct)
-////            ->orderby('id','desc')->get();
-//
-//        /*
-//
-//
-//
-//
-//
-//                $products=Product::Web_Shop_Def_Query()
-//                    ->with('product_with_category')
-//                    ->whereHas('product_with_category',function($query) use ($categoryid){
-//                        $query->where('category_id',$categoryid);
-//                    })->orderby('id','desc')->get();
-//
-//
-//        */
-//        $products = Product::where('id','!=','5')->get();
-//
-//        return view('admin.customer.products_list_ajex',
-//            compact('category','products','categoryid'));
-//    }
-
-
-//#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-//#|||||||||||||||||||||||||||||||||||||| #FavProductsAdd
-//    public function FavProductsAddXX(Request $request, $id)
-//    {
-//
-//        $pageData = $this->pageData;
-//        $pageData['ViewType'] = "Edit";
-//        $customer = Customer::findOrFail($id);
-//
-//
-//
-//
-//
-//
-//        $customersProduct  = UserCustomersProduct::select('product_id')
-//            ->where('customer_id',$id)
-//            ->pluck('product_id');
-//
-//
-//
-//
-//
-//
-//        $products = Product::query()
-//            ->where('pro_shop',true)
-//            ->with('product_with_category')
-//            ->whereHas('product_with_category',function($query){
-//                $query->where('category_id',39);
-//            })
-//            //->whereIn('id',$customersProduct)
-//            ->whereNotIn('id',$customersProduct)
-//            ->orderby('id','desc')->get();
-//
-//
-//
-////        $categories = Category::query()
-////            ->where('is_active',true)
-////            ->where('cat_shop',true)
-////            ->get();
-////
-////
-////
-////
-////
-////        $categories = Category::tree()->with('translation')->get()->toTree();
-//
-//
-//        return view('admin.customer.products_list',compact('pageData','customer','products','customersProduct'));
-//    }
 }

@@ -62,14 +62,14 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(PermissionSeeder::class);
-        $this->call(DBUsersSeeder::class);
-        $this->call(DBRoleSeeder::class);
-        $this->call(DBModelHasRolesSeeder::class);
-        $this->call(DBRoleHasPermissionsSeeder::class);
+//        $this->call(DBUsersSeeder::class);
+//        $this->call(DBRoleSeeder::class);
+//        $this->call(DBModelHasRolesSeeder::class);
+//        $this->call(DBRoleHasPermissionsSeeder::class);
 
-//        $this->call(AdminUserSeeder::class);
-//        $this->call(RoleSeeder::class);
-//        $this->call(UsersTableSeeder::class);
+        $this->call(AdminUserSeeder::class);
+        $this->call(RoleSeeder::class);
+        $this->call(UsersTableSeeder::class);
 
         $this->call(SettingsTableSeeder::class);
         $this->call(SettingsTranslationsTableSeeder::class);
@@ -120,13 +120,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call(DataCitySeeder::class);
         $this->call(UsersCustomersSeeder::class);
-        $this->call(UsersCustomersAddressSeeder::class);
-        $this->call(UserCustomersProductSeeder::class);
-
-        $this->call(ShoppingOrderAddressSeeder::class);
-        $this->call(ShoppingOrderSeeder::class);
-        $this->call(ShoppingOrderProductSeeder::class);
-        $this->call(ShoppingOrderLogSeeder::class);
 
     }
 }

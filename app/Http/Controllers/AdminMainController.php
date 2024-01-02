@@ -7,6 +7,7 @@ use App\Models\admin\config\UploadFilter;
 use App\Models\admin\Developer;
 use App\Models\admin\Listing;
 use App\Models\admin\Post;
+use App\Models\admin\shop\Order;
 use Cache;
 use Illuminate\Support\Facades\View;
 use Spatie\Valuestore\Valuestore;
@@ -82,7 +83,13 @@ class AdminMainController extends Controller
 
     }
 
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#|||||||||||||||||||||||||||||||||||||| #     Dashboard
+    public function Dashboard ()
+    {
 
+        return view('admin.dashbord');
+    }
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| #     getDefSetting
     public function getDefSetting($controllerName,$key,$def){

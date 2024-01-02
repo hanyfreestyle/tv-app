@@ -13,7 +13,7 @@
                     </div>
 
                     <div class="col-3 text-left">
-                        <x-action-button url="{{route($PrefixRoute.'.Address',$customer->id)}}"  bg="p"  print-lable="العناوين"  icon="fas fa-map-marker-alt"  />
+
                     </div>
                 </div>
             @endif
