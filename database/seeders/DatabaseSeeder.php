@@ -62,8 +62,8 @@ class DatabaseSeeder extends Seeder
 
 
 
-//        $this->call(FaqCategorySeeder::class);
-//        $this->call(FaqCategoryTranslationSeeder::class);
+        $this->call(FaqCategorySeeder::class);
+        $this->call(FaqCategoryTranslationSeeder::class);
 //        $this->call(FaqSeeder::class);
 //        $this->call(FaqTranslationSeeder::class);
 //        $this->call(FaqPivotSeeder::class);

@@ -43,16 +43,12 @@
 
 <header class="header_wrap">
     @include('web.layouts.inc.header_top')
-    @include('web.layouts.inc.header_middle')
+{{--    @include('web.layouts.inc.header_middle')--}}
     @include('web.layouts.inc.menu')
 </header>
 
-@if( $SinglePageView['banner_id']  and $SinglePageView['banner_count'] > 0)
-    @include('web.layouts.inc.def_banner')
-@else
-    @yield('breadcrumb')
-@endif
 
+@yield('breadcrumb')
 
 
 

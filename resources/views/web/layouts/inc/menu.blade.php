@@ -6,9 +6,7 @@
 
             <div class="col-md-6 col-sm-6 col-6  d-lg-none ">
                 <ul class="navbar-nav ShopNowMobile">
-                    @if(env('ETMAN_SHOP'))
-                        <li><a href="{{ route('Shop_HomePage') }}" class="nav-link"><i class="linearicons-cart"></i> {{__('web/menu.Shop_Now') }}</a></li>
-                    @endif
+
 
                 </ul>
             </div>
@@ -21,16 +19,13 @@
                     <div class="collapse navbar-collapse mobile_side_menu" id="navbarSidetoggle">
                         <ul class="navbar-nav web_site_navbar_nav">
                             <li><a class="nav-link nav_item @if($SinglePageView['SelMenu'] == 'HomePage' ) setActive @endif" href="{{ route('Page_HomePage') }}"> <i class="fas fa-home"></i> {{__('web/menu.home')}} </a></li>
-                            <li><a class="nav-link nav_item @if($SinglePageView['SelMenu'] == 'MainCategory' ) setActive @endif" href="{{ route('Page_MainCategory') }}"> <i class="fas fa-align-justify"></i>  {{__('web/def.Main_Categories')}} </a></li>
+{{--                            <li><a class="nav-link nav_item @if($SinglePageView['SelMenu'] == 'MainCategory' ) setActive @endif" href="{{ route('Page_MainCategory') }}"> <i class="fas fa-align-justify"></i>  {{__('web/def.Main_Categories')}} </a></li>--}}
                             <li><a class="nav-link nav_item @if($SinglePageView['SelMenu'] == 'AboutUs' ) setActive @endif" href="{{ route('Page_AboutUs') }}"><i class="fas fa-pen-nib"></i> {{ __('web/menu.About_Us') }}</a></li>
-                            <li><a class="nav-link nav_item @if($SinglePageView['SelMenu'] == 'OurClient' ) setActive @endif" href="{{ route('Page_OurClient') }}"><i class="fas fas fa-users"></i> {{ __('web/menu.Our_Client') }}</a></li>
-                            <li><a class="nav-link nav_item @if($SinglePageView['SelMenu'] == 'LatestNews' ) setActive @endif" href="{{ route('Page_LatestNews') }}"><i class="fas fa-rss"></i> {{ __('web/menu.Latest_News')}}</a></li>
+{{--                            <li><a class="nav-link nav_item @if($SinglePageView['SelMenu'] == 'OurClient' ) setActive @endif" href="{{ route('Page_OurClient') }}"><i class="fas fas fa-users"></i> {{ __('web/menu.Our_Client') }}</a></li>--}}
+{{--                            <li><a class="nav-link nav_item @if($SinglePageView['SelMenu'] == 'LatestNews' ) setActive @endif" href="{{ route('Page_LatestNews') }}"><i class="fas fa-rss"></i> {{ __('web/menu.Latest_News')}}</a></li>--}}
                             <li><a class="nav-link nav_item @if($SinglePageView['SelMenu'] == 'FaqList' ) setActive @endif" href="{{ route('Page_FaqList') }}"><i class="fas fa-question"></i> {{ __('web/menu.Faq') }}</a></li>
 
-                            @if(env('ETMAN_SHOP'))
-                                <li><a class="nav-link nav_item " href="{{ route('Shop_HomePage') }}"> <i class="fas fa-shopping-cart"></i> {{__('web/menu.Shop_Now') }}</a></li>
-                            @endif
-{{--                            <li><a class="nav-link nav_item @if($SinglePageView['SelMenu'] == 'Careers' ) setActive @endif" href="{{ route('Page_Careers') }}"> <i class="fas fa-briefcase"></i> {{ __('web/menu.Careers')}}</a></li>--}}
+
                             <li><a class="nav-link nav_item @if($SinglePageView['SelMenu'] == 'ContactUs' ) setActive @endif" href="{{ route('Page_ContactUs') }}"><i class="fas fa-headset"></i> {{ __('web/menu.contatc_us')}}</a></li>
 
 

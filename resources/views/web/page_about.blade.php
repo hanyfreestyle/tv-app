@@ -7,11 +7,7 @@
 @section('content')
     <div class="section AboutUs">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="def_h1 def_border" >{{$PageMeta->body_h1}}</h1>
-                </div>
-            </div>
+
 
             <div class="row">
                 <div class="col-lg-7">
@@ -56,8 +52,6 @@
     </div>
 
 
-
-    <x-website.block-our-client/>
 
 
 @endsection

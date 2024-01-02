@@ -42,15 +42,12 @@ class WebPageController extends WebMainController
 #|||||||||||||||||||||||||||||||||||||| #    HomePage
     public function HomePage()
     {
-        $PageMeta = parent::getMeatByCatId('HomePage');
+        $PageMeta = parent::getMeatByCatId('home');
         parent::printSeoMeta($PageMeta);
         $SinglePageView = $this->SinglePageView ;
         $SinglePageView['SelMenu'] = 'HomePage' ;
-        $SinglePageView['banner_id'] = $PageMeta->banner_id ;
-        $SinglePageView['banner_count'] = $PageMeta->page_banner_count ;
         $SinglePageView['banner_list'] = $PageMeta->PageBanner ;
-        $BlogPosts =  BlogPost::defWeb()->limit(3)->get();
-        return view('web.index',compact('SinglePageView','BlogPosts'));
+        return view('web.index',compact('SinglePageView'));
     }
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -62,32 +59,12 @@ class WebPageController extends WebMainController
 
         $SinglePageView = $this->SinglePageView ;
         $SinglePageView['SelMenu'] = 'AboutUs' ;
-        $SinglePageView['banner_id'] = $PageMeta->banner_id ;
-        $SinglePageView['banner_count'] = $PageMeta->page_banner_count ;
-        $SinglePageView['banner_list'] = $PageMeta->PageBanner ;
         $SinglePageView['breadcrumb'] = "AboutUs" ;
 
-        return view('web.page_about',compact('SinglePageView','PageMeta'));
+//        return view('web.page_about',compact('SinglePageView','PageMeta'));
+        return view('web.index',compact('SinglePageView'));
     }
 
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-#|||||||||||||||||||||||||||||||||||||| #    OurClient
-    public function OurClient ()
-    {
-        $PageMeta = parent::getMeatByCatId('OurClient');
-        parent::printSeoMeta($PageMeta);
-
-        $SinglePageView = $this->SinglePageView ;
-        $SinglePageView['SelMenu'] = 'OurClient' ;
-        $SinglePageView['banner_id'] = $PageMeta->banner_id ;
-        $SinglePageView['banner_count'] = $PageMeta->page_banner_count ;
-        $SinglePageView['banner_list'] = $PageMeta->PageBanner ;
-        $SinglePageView['breadcrumb'] = "OurClient" ;
-
-        $OurClients = OurClient::defWeb()->paginate(12);
-
-        return view('web.page_our_client',compact('SinglePageView','PageMeta','OurClients'));
-    }
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| #    ContactUs
@@ -98,13 +75,13 @@ class WebPageController extends WebMainController
 
         $SinglePageView = $this->SinglePageView ;
         $SinglePageView['SelMenu'] = 'ContactUs' ;
-        $SinglePageView['banner_id'] = $PageMeta->banner_id ;
-        $SinglePageView['banner_count'] = $PageMeta->page_banner_count ;
-        $SinglePageView['banner_list'] = $PageMeta->PageBanner ;
         $SinglePageView['breadcrumb'] = "ContactUs" ;
 
         $FaqCategories = FaqCategory::defWeb()
             ->get();
+
+//        dd($FaqCategories);
+
         return view('web.page_contact_us',compact('SinglePageView','PageMeta','FaqCategories'));
     }
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

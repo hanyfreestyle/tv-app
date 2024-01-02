@@ -59,11 +59,15 @@ class WebMainController extends Controller
 #|||||||||||||||||||||||||||||||||||||| #     text
     static function printSeoMeta($row,$defPhoto="logo",$sendArr=array()){
 
+        if($row != ''){
+
+
 
         $lang = thisCurrentLocale();
 
         $type = AdminHelper::arrIsset($sendArr,'type','website');
         $siteName = self::getWebConfig();
+
 
         if($row->photo){
             $defImage = $row->photo ;
@@ -93,21 +97,16 @@ class WebMainController extends Controller
         TwitterCard::setImage($defImage);
         TwitterCard::setType('summary_large_image');
 
+        }
 
     }
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| #     getMeatByCatId
     static function getMeatByCatId($cat_id){
 
-//        $WebMeta = Cache::remember('WebMeta_Cash',config('app.meta_tage_cash'), function (){
-//            return  Page::with('translation')->get()->keyBy('cat_id');
-//        });
-
         $PagesList = Cache::remember('PagesList_Cash_'.app()->getLocale(),config('app.def_24h_cash'), function (){
             return  Page::where('is_active',true)
                 ->with('translation')
-                ->with('PageBanner')
-                ->withcount('PageBanner')
                 ->orderBy('postion','ASC')
                 ->get()
                 ->keyBy('cat_id')

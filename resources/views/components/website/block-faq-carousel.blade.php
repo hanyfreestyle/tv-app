@@ -8,18 +8,18 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <div class="faq_logo carousel_slider owl-carousel owl-theme nav_style3" data-dots="false" data-nav="true" data-margin="30" data-loop="true" data-autoplay="false" data-responsive='{"0":{"items": "2"}, "480":{"items": "3"}, "767":{"items": "4"}, "991":{"items": "6"}}'>
+            <div class="faq_logo carousel_slider owl-carousel owl-theme nav_style3" data-dots="false" data-nav="true" data-margin="30" data-loop="true" data-autoplay="false" data-responsive='{"0":{"items": "2"}, "480":{"items": "3"}, "767":{"items": "4"}, "991":{"items": "4"}}'>
                 @foreach($faqCategories as $FaqCategory)
-                    @if($FaqCategory->photo)
+{{--                    @if($FaqCategory->photo)--}}
                         <div class="item">
                             <a href="{{route($url,$FaqCategory->slug)}}">
                                 <div class="">
-                                    <img src="{{getPhotoPath($FaqCategory->photo)}}" alt="cl_logo"/>
+                                    <img src="{{getPhotoPath($FaqCategory->photo,"categorie")}}" alt="cl_logo"/>
                                 </div>
                                 <h3 class="def_h4 text-center">{{$FaqCategory->name}}</h3>
                             </a>
                         </div>
-                    @endif
+{{--                    @endif--}}
                 @endforeach
             </div>
         </div>

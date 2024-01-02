@@ -199,8 +199,9 @@
 
 
 .faq_logo img{
-    max-width: 100px;
+    max-width: 90%;
     margin: auto;
+    margin-bottom: 15px;
 }
 
 .faq_logo h3{
