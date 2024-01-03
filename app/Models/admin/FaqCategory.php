@@ -32,6 +32,8 @@ class FaqCategory extends Model implements TranslatableContract , LocalizedUrlRo
             ->withPivot('postion')->orderBy('postion');
     }
 
+
+
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| #
     public function scopeDefquery(Builder $query): Builder

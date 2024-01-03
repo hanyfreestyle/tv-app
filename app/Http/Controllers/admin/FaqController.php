@@ -85,8 +85,16 @@ class FaqController extends AdminMainController
         $pageData['ViewType'] = "List";
         $pageData['ConfigUrl'] = route('FAQ.Config');
 
-        $Faqs = Faq::with('FaqToCategories')
+        $Faqs = Faq::Defquery()->with('FaqToCategories')
+            ->orderBy('id','desc')
+
             ->paginate(10);
+
+//        $Faqs = Faq::where('id','!=',0)
+//
+//        ->paginate(10);
+  // dd($Faqs);
+
 
         return view('admin.faq.faq_index',compact('pageData','Faqs'));
     }
@@ -100,7 +108,18 @@ class FaqController extends AdminMainController
 
         $Faqs = Faq::whereHas('FaqToCategories', function ($query) use ($id) {
             $query->where('category_id', $id);
-        })->paginate(10);
+        })
+            ->paginate(10);
+
+
+
+
+  dd($Faqs);
+
+//        $Category = FaqCategory::with(['faqs' => function ($query) {
+//            $query->orderBy('postion','ASC');
+//        }])->where('id',$Categoryid)->firstOrFail();
+
 
         return view('admin.faq.faq_index',compact('pageData','Faqs'));
     }

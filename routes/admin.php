@@ -37,6 +37,8 @@ Route::get('/Faq/emptyPhoto/{id}', [FaqCategoryController::class,'emptyPhoto'])-
 Route::get('/Faq/Sort/{Categoryid}',[FaqController::class,'Sort'])->name('FAQ.FaqCat.Sort');
 
 
+
+
 Route::get('/Faq',[FaqController::class,'index'])->name('FAQ.FaqList.index');
 Route::get('/Faq/ListCategory/{Categoryid}',[FaqController::class,'ListCategory'])->name('FAQ.FaqList.ListCategory');
 Route::get('/Faq/create',[FaqController::class,'create'])->name('FAQ.FaqList.create');
@@ -45,4 +47,8 @@ Route::get('/Faq/destroy/{id}',[FaqController::class,'destroy'])->name('FAQ.FaqL
 Route::post('/Faq/update/{id}',[FaqController::class,'storeUpdate'])->name('FAQ.FaqList.update');
 Route::post('/Faq/SaveSort', [FaqController::class,'SaveSort'])->name('FAQ.FaqList.SaveSort');
 
+Route::get('/Faq/photos/{id}',[FaqController::class,'ListMorePhoto'])->name('FAQ.FaqList.More_Photos');
+Route::post('/Faq/saveSort', [FaqController::class,'sortPhotoSave'])->name('FAQ.FaqList.sortPhotoSave');
+Route::post('/Faq/AddMore',[FaqController::class,'AddMorePhotos'])->name('FAQ.FaqList.More_PhotosAdd');
+Route::get('/Faq/PhotoDel/{id}',[FaqController::class,'More_PhotosDestroy'])->name('FAQ.FaqList.More_PhotosDestroy');
 

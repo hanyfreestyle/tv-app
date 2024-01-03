@@ -27,22 +27,42 @@ class Faq extends Model implements TranslatableContract
 #|||||||||||||||||||||||||||||||||||||| #
     public function FaqToCategories()
     {
+
         return $this->belongsToMany(FaqCategory::class,'faqcategory_faq','faq_id','category_id')
-            ->withPivot(['postion','id'])
-            ;
+//            ->withPivot('postion')->orderBy('pivot_postion',"asc")
+           // ->withPivot(['postion','id'])->orderByPivot('postion')
+//             ->withPivot(['postion','id'])
+;
+
+//        return $this->belongsToMany(Faq::class,'faqcategory_faq','category_id','faq_id')
+//            ->withPivot('postion')->orderBy('postion');
+
     }
 
 
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#|||||||||||||||||||||||||||||||||||||| #
+    public function faqs()
+    {
+        return $this->belongsToMany(Faq::class,'faqcategory_faq','category_id','faq_id')
+            ->withPivot('postion')->orderBy('postion');
+    }
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| #
     public function scopeDefquery(Builder $query): Builder
     {
-        return $query->with('translations');
+        return $query->with('translations')
+
+            ;
     }
 
-    public function categoryName(): BelongsTo
-    {
-        return $this->belongsTo(FaqCategory::class,'category_id','id')->with('translation');
-    }
+
+
+
+
+//    public function categoryName(): BelongsTo
+//    {
+//        return $this->belongsTo(FaqCategory::class,'category_id','id')->with('translation');
+//    }
 }

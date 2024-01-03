@@ -162,6 +162,8 @@ class WebPageController extends WebMainController
             ->whereTranslation('slug', $slug)
             ->firstOrFail();
 
+//        dd($FaqCategory);
+
 //        if ($FaqCategory->translate()->where('slug', $slug)->first()->locale != app()->getLocale()) {
 //            return redirect()->route('Page_FaqCatView', $FaqCategory->translate()->slug);
 //        }

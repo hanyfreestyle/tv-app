@@ -43,6 +43,7 @@
                                 <td>{{ $row->translate('en')->name}}</td>
                                 <td>{{ $row->translate('es')->name}}</td>
                                 <td>
+
                                     @foreach($row->FaqToCategories as $Category )
                                         <a href="{{route($PrefixRoute.'.ListCategory',$Category->id)}}">
                                             <span class="cat_table_name">{{$Category->name}}</span>
