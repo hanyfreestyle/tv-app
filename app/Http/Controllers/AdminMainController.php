@@ -139,7 +139,8 @@ class AdminMainController extends Controller
         }
     }
 
-
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#|||||||||||||||||||||||||||||||||||||| #
     public function NotsetData($request,$sours,$def){
 
         if($request->$sours == null){
@@ -149,6 +150,25 @@ class AdminMainController extends Controller
         }
         return $data ;
     }
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#|||||||||||||||||||||||||||||||||||||| #  redirectWhere
+    public function redirectWhere($request,$id,$route){
+        if($id == '0'){
+            if($request->input('AddNewSet') !== null){
+                return redirect()->back();
+            }else{
+                return redirect(route($route))->with('Add.Done',"");
+            }
+        }else{
+            if($request->input('GoBack') !== null){
+                return redirect()->back()->with('Edit.Done',"");
+            }else{
+                return redirect(route($route))->with('Edit.Done',"");
+            }
+        }
+    }
+
 
 
 }

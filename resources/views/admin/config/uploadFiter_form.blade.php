@@ -19,7 +19,7 @@
                         <hr>
                         <div class="row">
                             <x-form-input label="{{__('admin/config/upFilter.form_name')}}" name="name" :requiredSpan="true"   colrow="col-lg-5"
-                                          value="{{old('name',$rowData->name)}}" inputclass="dir_ar"/>
+                                          value="{{old('name',$rowData->name)}}" inputclass="dir_en"/>
 
                             <x-form-select-arr  label="{{__('admin/config/upFilter.form_type')}}" name="type" colrow="col-lg-7"
                                                 sendvalue="{{old('type',$rowData->type)}}" :send-arr="$filterTypeArr"

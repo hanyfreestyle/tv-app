@@ -146,14 +146,8 @@ class FaqCategoryController extends AdminMainController
             $saveTranslation->save();
         }
 
-
         self::ClearCash();
-
-        if($id == '0'){
-            return redirect(route($this->PrefixRoute.'.index'))->with('Add.Done',"");
-        }else{
-            return redirect(route($this->PrefixRoute.'.index'))->with('Edit.Done',"");
-        }
+        return  self::redirectWhere($request,$id,$this->PrefixRoute.'.index');
 
     }
 

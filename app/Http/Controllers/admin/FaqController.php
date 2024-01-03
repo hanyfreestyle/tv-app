@@ -162,21 +162,19 @@ class FaqController extends AdminMainController
     {
         $categories = $request->input('categories');
 
+
         $saveData =  Faq::findOrNew($id);
         $saveData->is_active = intval((bool) $request->input( 'is_active'));
         $saveData->save();
         $saveData->FaqToCategories()->sync($categories);
 
-
         $saveImgData = new PuzzleUploadProcess();
         $saveImgData->setCountOfUpload('2');
         $saveImgData->setUploadDirIs('faq/'.$saveData->id);
-        $saveImgData->setnewFileName('hany');
+        $saveImgData->setnewFileName($request->input('en.slug'));
         $saveImgData->UploadOne($request);
         $saveData = AdminHelper::saveAndDeletePhoto($saveData,$saveImgData);
         $saveData->save();
-
-
 
         foreach ( config('app.WebLang') as $key=>$lang) {
             $saveTranslation = FaqTranslation::where('faq_id',$saveData->id)->where('locale',$key)->firstOrNew();
@@ -193,11 +191,7 @@ class FaqController extends AdminMainController
         }
 
         self::ClearCash();
-        if($id == '0'){
-            return redirect(route($this->PrefixRoute.'.index'))->with('Add.Done',"");
-        }else{
-            return redirect(route($this->PrefixRoute.'.index'))->with('Edit.Done',"");
-        }
+        return  self::redirectWhere($request,$id,$this->PrefixRoute.'.index');
     }
 
 

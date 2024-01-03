@@ -38,10 +38,10 @@
                                     thisfilterid="{{ \App\Helpers\AdminHelper::arrIsset($modelSettings,$controllerName.'_filterid',0) }}"
                                     :emptyphotourl="$PrefixRoute.'.emptyPhoto'"  />
 
-
                 <div class="container-fluid">
-                    <x-form-submit text="{{$pageData['ViewType']}}" />
+                    <x-form-submit-new  :page-data="$pageData" />
                 </div>
+
             </form>
         </x-ui-card>
 

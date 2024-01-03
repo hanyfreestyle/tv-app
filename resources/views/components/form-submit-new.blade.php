@@ -16,7 +16,16 @@
                 value="1"
                 class="btn mr-3 ml-3 {{$size}} {{$buttonBackGround}} {{$dir}}"
             >
-                {{ __('admin/form.button_add_anther') }}</button>
+                {!! __('admin/form.button_add_anther') !!}</button>
+
+        @elseif($pageData['ViewType']  == 'Edit' and $addNew == true)
+            <button
+                type="{{$type}}"
+                name="GoBack"
+                value="1"
+                class="btn mr-3 ml-3 {{$size}} {{$buttonBackGround}} {{$dir}}"
+            >
+                Update & Go Back </button>
         @endif
 
     </div>
