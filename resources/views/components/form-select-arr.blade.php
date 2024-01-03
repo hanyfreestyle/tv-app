@@ -1,11 +1,14 @@
 <div class="{{$colrow}}">
     <div class="form-group">
-        <label class="def_form_label col-form-label font-weight-light">
-            {{$label}}
-            @if($requiredSpan)
-                <span class="required_Span">*</span>
-            @endif
-        </label>
+        @if($labelview)
+            <label class="def_form_label col-form-label font-weight-light">
+                {{$label}}
+                @if($requiredSpan)
+                    <span class="required_Span">*</span>
+                @endif
+            </label>
+
+        @endif
 
         <select class="form-control select2 custom-select is-invalid" id="{{$name}}" name="{{$name}}" style="width: 100%;" >
             <option value="">{{$label}}</option>

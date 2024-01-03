@@ -27,7 +27,7 @@ class DefPhotoRequest extends FormRequest
             $rules =[
                'cat_id'=> "required|alpha_dash:ascii|min:4|max:50|unique:config_def_photos,cat_id,$id",
                'filter_id'=> "required_with:image",
-               'image' => 'mimes:jpeg,jpg,png,gif|max:10000',
+               'image' => 'mimes:jpeg,jpg,png,gif,webp|max:10000',
             ];
         }
         return $rules;

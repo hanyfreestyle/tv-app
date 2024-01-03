@@ -69,6 +69,13 @@ class AdminMainController extends Controller
         View::share('OrderByArr', $OrderByArr);
 
 
+        $PrintPhotoPosition = [
+            "1"=> ['id'=>'1','name'=>"Top"],
+            "2"=> ['id'=>'2','name'=> "Bottom"],
+        ];
+        View::share('PrintPhotoPosition', $PrintPhotoPosition);
+
+
         $modelSettings = Valuestore::make(config_path(config('app.model_settings_name')));
         $modelSettings = $modelSettings->all();
         $this->modelSettings = $modelSettings ;

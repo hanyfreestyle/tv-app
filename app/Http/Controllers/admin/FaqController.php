@@ -5,11 +5,14 @@ namespace App\Http\Controllers\admin;
 use App\Helpers\AdminHelper;
 use App\Helpers\PuzzleUploadProcess;
 use App\Http\Controllers\AdminMainController;
+use App\Http\Requests\admin\config\DefPhotoRequest;
+use App\Http\Requests\admin\FaqPhotoEditRequest;
 use App\Http\Requests\admin\FaqPhotoRequest;
 use App\Http\Requests\admin\FaqRequest;
 use App\Http\Requests\admin\ProductPhotoRequest;
 use App\Models\admin\BlogPost;
 use App\Models\admin\BlogPostPhoto;
+use App\Models\admin\config\DefPhoto;
 use App\Models\admin\Faq;
 use App\Models\admin\FaqCategory;
 use App\Models\admin\FaqPhoto;
@@ -293,12 +296,46 @@ class FaqController extends AdminMainController
 
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#|||||||||||||||||||||||||||||||||||||| #     ListMorePhoto
+    public function ListPhotosEdit($id)
+    {
+        $pageData = $this->pageData;
+        $pageData['ViewType'] = "Edit";
+        $Faq = Faq::findOrFail($id) ;
+        $FaqPhotos = FaqPhoto::where('faq_id','=',$id)->orderBy('position')->get();
+        $FaqPhotosData = $FaqPhotos->toArray();
+       // dd($FaqPhotosData);
+
+        return view('admin.faq.photos_edit',compact('FaqPhotos','pageData','Faq','FaqPhotosData'));
+    }
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#|||||||||||||||||||||||||||||||||||||| #     ListMorePhoto
+    public function ListPhotosUpdate(Request $request)
+    {
+        foreach ($request->input('id') as $id){
+            $UpdatePhoto = FaqPhoto::findOrFail($id) ;
+            foreach (config('app.WebLang') as $key=>$lang){
+                $fildeName = "des_".$key;
+                $UpdatePhoto->$fildeName = $request->input($fildeName.$id);
+            }
+
+            $UpdatePhoto->print_photo = $request->input('print_photo'.$id);
+            $UpdatePhoto->save();
+        }
+        return back()->with('Edit.Done',"");
+    }
+
+
+
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| #     AddMorePhotos
     public function AddMorePhotos(FaqPhotoRequest $request)
     {
         $saveImgData = new PuzzleUploadProcess();
         $saveImgData->setCountOfUpload('2');
-        $saveImgData->setUploadDirIs('faq/'.$request->blog_id);
+        $saveImgData->setUploadDirIs('faq/'.$request->faq_id);
         $saveImgData->setnewFileName($request->input('name'));
         $saveImgData->UploadMultiple($request);
 
@@ -336,5 +373,49 @@ class FaqController extends AdminMainController
         $deleteRow->delete();
         self::ClearCash();
         return back()->with('confirmDelete',"");
+    }
+
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#|||||||||||||||||||||||||||||||||||||| #     EditPhoto
+    public function EditPhoto($id){
+        $pageData = $this->pageData;
+        $pageData['ViewType'] = "Edit";
+        $rowData = FaqPhoto::where('id',$id)
+            ->with('faqName')
+            ->firstOrFail();
+
+        $oldData = $rowData->toArray();
+//        dd($oldData);
+        return view('admin.faq.photo_edit',compact('rowData','pageData','oldData'));
+    }
+
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#|||||||||||||||||||||||||||||||||||||| #     storeUpdate
+    public function editPhotoUpdate(FaqPhotoEditRequest $request,$id){
+
+        $saveData =  FaqPhoto::findOrNew($id) ;
+//        dd($saveData);
+
+
+        $saveImgData = new PuzzleUploadProcess();
+        $saveImgData->setCountOfUpload('2');
+        $saveImgData->setUploadDirIs('faq/'.$saveData->faq_id);
+        $saveImgData->setnewFileName($saveData->name);
+        $saveImgData->UploadOne($request);
+
+        $saveData = AdminHelper::saveAndDeletePhoto($saveData,$saveImgData);
+
+        foreach (config('app.WebLang') as $key=>$lang){
+            $fildeName = "des_".$key;
+            $saveData->$fildeName = $request->input($fildeName);
+        }
+
+        $saveData->save();
+        self::ClearCash();
+
+        return  back()->with('Edit.Done',__('general.alertMass.confirmEdit'));
+
     }
 }

@@ -3,6 +3,13 @@
 @section('content')
 
     <x-breadcrumb-def :pageData="$pageData"/>
+    <x-html-section>
+        <div class="row mb-3">
+            <div class="col-12 text-left">
+                <x-action-button url="{{route($PrefixRoute.'.More_Photos',$Faq->id)}}"  count="{{$Faq->more_photos_count}}" type="morePhoto"   />
+            </div>
+        </div>
+    </x-html-section>
 
     <x-html-section>
         <x-ui-card :page-data="$pageData">
@@ -71,106 +78,11 @@
 
 @endsection
 
-
 @push('JsCode')
-
-        <script src="https://cdn.ckeditor.com/4.11.1/full/ckeditor.js"></script>
-        <script>
-            CKEDITOR.replace('en[des]',
-                {
-                    language: 'en',
-                    height: 250,
-                    toolbarGroups : [
-                        { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
-                        { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
-                        { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
-                        { name: 'insert', groups: [ 'insert' ] },
-                        { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-                        { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
-                        { name: 'links', groups: [ 'links' ] },
-                        '/',
-                        { name: 'colors', groups: [ 'colors' ] },
-                        { name: 'styles', groups: [ 'styles' ] },
-                        { name: 'tools', groups: [ 'tools' ] },
-                        { name: 'others', groups: [ 'others' ] },
-                        { name: 'about', groups: [ 'about' ] }
-                    ],
-
-                });
-            CKEDITOR.config.removeButtons = 'Save,NewPage,ExportPdf,Preview,Print,Templates,About,Smiley,SpecialChar,PageBreak,Iframe,Language,BidiRtl,BidiLtr,Subscript,Superscript,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Find,Replace,SelectAll,Scayt';
-        </script>
-        <script>
-            CKEDITOR.replace('es[des]',
-                {
-                    language: 'en',
-                    height: 250,
-                    toolbarGroups : [
-                        { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
-                        { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
-                        { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
-                        { name: 'insert', groups: [ 'insert' ] },
-                        { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-                        { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
-                        { name: 'links', groups: [ 'links' ] },
-                        '/',
-                        { name: 'colors', groups: [ 'colors' ] },
-                        { name: 'styles', groups: [ 'styles' ] },
-                        { name: 'tools', groups: [ 'tools' ] },
-                        { name: 'others', groups: [ 'others' ] },
-                        { name: 'about', groups: [ 'about' ] }
-                    ],
-
-                });
-            CKEDITOR.config.removeButtons = 'Save,NewPage,ExportPdf,Preview,Print,Templates,About,Smiley,SpecialChar,PageBreak,Iframe,Language,BidiRtl,BidiLtr,Subscript,Superscript,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Find,Replace,SelectAll,Scayt';
-        </script>
-        <script>
-            CKEDITOR.replace('en[other]',
-                {
-                    language: 'en',
-                    height: 250,
-                    toolbarGroups : [
-                        { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
-                        { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
-                        { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
-                        { name: 'insert', groups: [ 'insert' ] },
-                        { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-                        { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
-                        { name: 'links', groups: [ 'links' ] },
-                        '/',
-                        { name: 'colors', groups: [ 'colors' ] },
-                        { name: 'styles', groups: [ 'styles' ] },
-                        { name: 'tools', groups: [ 'tools' ] },
-                        { name: 'others', groups: [ 'others' ] },
-                        { name: 'about', groups: [ 'about' ] }
-                    ],
-
-                });
-            CKEDITOR.config.removeButtons = 'Save,NewPage,ExportPdf,Preview,Print,Templates,About,Smiley,SpecialChar,PageBreak,Iframe,Language,BidiRtl,BidiLtr,Subscript,Superscript,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Find,Replace,SelectAll,Scayt';
-        </script>
-        <script>
-            CKEDITOR.replace('es[other]',
-                {
-                    language: 'en',
-                    height: 250,
-                    toolbarGroups : [
-                        { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
-                        { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
-                        { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
-                        { name: 'insert', groups: [ 'insert' ] },
-                        { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-                        { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
-                        { name: 'links', groups: [ 'links' ] },
-                        '/',
-                        { name: 'colors', groups: [ 'colors' ] },
-                        { name: 'styles', groups: [ 'styles' ] },
-                        { name: 'tools', groups: [ 'tools' ] },
-                        { name: 'others', groups: [ 'others' ] },
-                        { name: 'about', groups: [ 'about' ] }
-                    ],
-
-                });
-            CKEDITOR.config.removeButtons = 'Save,NewPage,ExportPdf,Preview,Print,Templates,About,Smiley,SpecialChar,PageBreak,Iframe,Language,BidiRtl,BidiLtr,Subscript,Superscript,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Find,Replace,SelectAll,Scayt';
-        </script>
-
+    <script src="https://cdn.ckeditor.com/4.11.1/full/ckeditor.js"></script>
+    <x-faq.ckeditor-jave  name="en[des]" />
+    <x-faq.ckeditor-jave  name="es[des]" />
+    <x-faq.ckeditor-jave  name="en[other]" />
+    <x-faq.ckeditor-jave  name="es[other]" />
     <x-slug-name-script :pagetype="$pageData['ViewType']" />
 @endpush

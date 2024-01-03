@@ -11,6 +11,7 @@ class FormSelectArr extends Component
 
     public $name;
     public $label;
+    public $labelview;
     public $sendvalue;
     public $requiredSpan;
     public $colrow;
@@ -21,6 +22,7 @@ class FormSelectArr extends Component
     public function __construct(
         $name ="",
         $label = "",
+        $labelview = true,
         $sendvalue = "",
         $requiredSpan = true,
         $colrow = "col-lg-4",
@@ -32,6 +34,7 @@ class FormSelectArr extends Component
     {
         $this->name = $name;
         $this->label = $label;
+        $this->labelview = $labelview;
         $this->sendvalue = $sendvalue;
         $this->requiredSpan = $requiredSpan;
         $this->colrow = $colrow;

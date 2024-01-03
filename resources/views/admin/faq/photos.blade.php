@@ -5,12 +5,14 @@
     <x-mass.confirm-massage />
 
     <x-html-section>
-        <div class="row">
-            <div class="col-9">
-                <h1 class="def_h1">{{ $Faq->translate()->name ?? "" }}</h1>
-            </div>
+        <div class="row mb-3 top_header_info">
             <div class="col-3 text-left">
                 <x-action-button  url="{{route($PrefixRoute.'.edit', $Faq->id)}}"  type="back" />
+                <x-action-button  url="{{route($PrefixRoute.'.ListPhotosEdit', $Faq->id)}}" print-lable="Edit Photos" />
+            </div>
+
+            <div class="col-9">
+                <h1 class="def_h1">{{ $Faq->translate()->name ?? "" }}</h1>
             </div>
         </div>
     </x-html-section>
@@ -26,6 +28,10 @@
                                 @can($PrefixRole.'_delete')
                                     <td class="tc"><x-action-button url="#" id="{{route($PrefixRoute.'.More_PhotosDestroy',$Photo->id)}}"  type="deleteSweet"/></td>
                                 @endcan
+                                @can($PrefixRole.'_edit')
+                                    <x-action-button  url="{{route($PrefixRoute.'.EditPhoto',$Photo->id)}}"  type="edit" :tip="true" size="s"   />
+                                @endcan
+
                             </div>
                         </div>
                     @endforeach
@@ -39,6 +45,7 @@
     </x-html-section>
 
     <x-html-section>
+        <hr>
         <div class="row">
             <div class="col-lg-12">
 

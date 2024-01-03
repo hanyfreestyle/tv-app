@@ -26,6 +26,7 @@ return new class extends Migration
             $table->integer("file_h")->nullable();
             $table->integer("file_w")->nullable();
             $table->integer("position")->default(0);
+            $table->integer("print_photo")->default(2);
             $table->integer("is_default")->default(0);
 
             $table->timestamps();
