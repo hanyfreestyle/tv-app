@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2024 at 03:42 PM
+-- Generation Time: Jan 03, 2024 at 12:32 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 --
 
 INSERT INTO `faq_category_translations` (`id`, `category_id`, `locale`, `slug`, `name`, `des`, `g_title`, `g_des`) VALUES
-(1, 1, 'en', 'category-1', 'Category 1', NULL, NULL, NULL),
-(2, 1, 'es', 'category-1', 'Category 1', NULL, NULL, NULL),
+(1, 1, 'en', 'da-web-player', 'DA WEB PLAYER', NULL, 'Page Title', 'Page Description'),
+(2, 1, 'es', 'da-web-player', 'DA WEB PLAYER', NULL, 'Page Title', 'Page Description'),
 (3, 2, 'en', 'category-2', 'Category 2', NULL, NULL, NULL),
 (4, 2, 'es', 'category-2', 'Category 2', NULL, NULL, NULL),
 (5, 3, 'en', 'category-3', 'Category 3', NULL, NULL, NULL),

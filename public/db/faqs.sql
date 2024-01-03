@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2023 at 04:27 PM
+-- Generation Time: Jan 03, 2024 at 12:32 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `a_etman`
+-- Database: `apptv_20240102`
 --
 
 --
@@ -26,9 +26,10 @@ SET time_zone = "+00:00";
 --
 
 INSERT INTO `faqs` (`id`, `is_active`, `url_type`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 0, NULL, '2023-09-16 10:39:37', '2023-09-16 10:39:37'),
-(2, 1, 0, NULL, '2023-09-16 11:02:10', '2023-09-16 11:02:10'),
-(3, 1, 0, NULL, '2023-09-16 11:02:57', '2023-09-16 11:02:57');
+(1, 1, 0, NULL, '2024-01-02 20:27:23', '2024-01-02 20:27:23'),
+(2, 1, 0, NULL, '2024-01-02 20:28:55', '2024-01-02 20:28:55'),
+(3, 1, 0, NULL, '2024-01-02 20:31:10', '2024-01-02 20:31:10'),
+(4, 1, 0, NULL, '2024-01-02 20:33:05', '2024-01-02 20:33:05');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -52,7 +52,7 @@
                                 </td>
                                 <td class="tc" >{!! is_active($row->is_active) !!}</td>
                                 @can($PrefixRole.'_edit')
-
+                                    <td class="tc"><x-action-button url="{{route($PrefixRoute.'.More_Photos',$row->id)}}"  count="{{$row->more_photos_count}}" type="morePhoto" :tip="true" /></td>
                                     <td class="tc"><x-action-button url="{{route($PrefixRoute.'.edit',$row->id)}}" type="edit" :tip="true" /></td>
                                 @endcan
 

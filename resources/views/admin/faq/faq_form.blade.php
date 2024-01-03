@@ -93,8 +93,6 @@
 
 @push('JsCode')
 
-
-    @if($viewEditor)
         <script src="https://cdn.ckeditor.com/4.11.1/full/ckeditor.js"></script>
         <script>
             CKEDITOR.replace('en[des]',
@@ -192,7 +190,6 @@
                 });
             CKEDITOR.config.removeButtons = 'Save,NewPage,ExportPdf,Preview,Print,Templates,About,Smiley,SpecialChar,PageBreak,Iframe,Language,BidiRtl,BidiLtr,Subscript,Superscript,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Find,Replace,SelectAll,Scayt';
         </script>
-    @endif
 
     <x-slug-name-script :pagetype="$pageData['ViewType']" />
 @endpush

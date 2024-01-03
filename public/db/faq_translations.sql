@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2023 at 04:24 PM
+-- Generation Time: Jan 03, 2024 at 01:01 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -18,20 +18,22 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `a_etman`
+-- Database: `apptv_20240102`
 --
 
 --
 -- Dumping data for table `faq_translations`
 --
 
-INSERT INTO `faq_translations` (`id`, `faq_id`, `locale`, `name`, `des`, `other`, `url`, `url_but`) VALUES
-(1, 1, 'ar', 'ما هى العناوين والفروع لشركة عتمان جروب ؟', 'المقر الرئيسي\r\n14 ش خليل بك متفرع من شارع\r\nاسماعيل صبري - الجمرك\r\nالاسكندرية - مصر \r\n\r\nالمقر الادارى\r\n336 طريق الجيش امام نادي التجاريين\r\nعمارات رويال بلازا - سابا باشا\r\nالاسكندرية - مصر', NULL, NULL, NULL),
-(2, 1, 'en', 'What are the addresses and branches of Etman Group ?', 'Managerial Office\r\n14 Khalil Bek St., from Ismail Sabry El Gommork\r\nAlexandria - Egypt\r\n\r\nManagerial Office\r\n336 El Geish Road in front of Al Tegareen Club\r\nRoyal Plaza Buildings - Saba Basha\r\nAlexandria - Egypt', NULL, NULL, NULL),
-(3, 2, 'ar', 'هل يوجد لكم معرض يمكنني من شراء المنتجات ؟', 'نعم لدينا معرض يمكنك شراء المنتجات منه باسعار مميزة سواء للجملة او التجزائة', '<h2><strong>عنوان المعرض</strong></h2>\r\n\r\n<ul>\r\n	<li>\r\n	<p>14 ش خليل بك متفرع من شارع<br />\r\n	اسماعيل صبري - الجمرك<br />\r\n	الاسكندرية - مصر</p>\r\n	</li>\r\n	<li>\r\n	<p>201006180117<br />\r\n	2034867311<br />\r\n	2034815941</p>\r\n	</li>\r\n	<li>\r\n	<p><strong>مواعيد العمل</strong><br />\r\n	طول ايام الاسبوع<br />\r\n	من 9 صباحا وحتى 9 مساءا</p>\r\n	</li>\r\n</ul>', NULL, NULL),
-(4, 2, 'en', 'Do you have a showroom where I can purchase products ?', 'Yes, we have a showroom where you can buy products at special prices, whether wholesale or retail', NULL, NULL, NULL),
-(5, 3, 'ar', 'هل يوجد لكم فرع فى محافظة القاهرة ؟', 'لا يوجد لنا معرض فى القاهرة حاليا ونسعى جاهدين فى تلبية رغبة عملائنا فى توفير معرض لمنتجات عتمان جروب بالقاهرة فى اقرب وقت', NULL, NULL, NULL),
-(6, 3, 'en', 'Do you have a branch in Cairo Governorate?', 'We do not currently have a showroom in Cairo, and we strive to fulfill our customers’ desire to provide a showroom for Etman Group products in Cairo as soon as possible.', NULL, NULL, NULL);
+INSERT INTO `faq_translations` (`id`, `faq_id`, `locale`, `slug`, `name`, `des`, `other`, `g_title`, `g_des`) VALUES
+(1, 1, 'en', NULL, 'What is \"DA WEB PLAYER\" ?', '<p><span style=\"font-size:20px\"><strong><span style=\"color:#e74c3c\">It is a web application to stream the service through your web browser without installing any additional apps.</span></strong></span></p>', NULL, NULL, NULL),
+(2, 1, 'es', NULL, 'What is \"DA WEB PLAYER\" ?', '<p>It is a web application to stream the service through your web browser without installing any additional apps.</p>', NULL, NULL, NULL),
+(3, 2, 'en', NULL, 'What browsers support \"DA WEB PLAYER\" ?', 'All web browsers such as Google Chrome, Safari, Microsoft Edge, Mozilla Firefox or any other web browser are supporting \"DA WEB PLAYER\"', NULL, NULL, NULL),
+(4, 2, 'es', NULL, 'What browsers support \"DA WEB PLAYER\" ?', 'All web browsers such as Google Chrome, Safari, Microsoft Edge, Mozilla Firefox or any other web browser are supporting \"DA WEB PLAYER\"', NULL, NULL, NULL),
+(5, 3, 'en', NULL, 'What are the devices which support \"DA WEB PLAYER\" ?', 'All devices have a web browser are supporting \"DA WEB PLAYER\". For example:\r\nAndroid phones and tablets\r\niOS devices such as iPhones and iPads\r\nMAC computers\r\nMicrosoft Windows computers\r\nPlayStation\r\nXbox', NULL, NULL, NULL),
+(6, 3, 'es', NULL, 'What are the devices which support \"DA WEB PLAYER\" ?', 'All devices have a web browser are supporting \"DA WEB PLAYER\". For example:\r\nAndroid phones and tablets\r\niOS devices such as iPhones and iPads\r\nMAC computers\r\nMicrosoft Windows computers\r\nPlayStation\r\nXbox', NULL, NULL, NULL),
+(7, 4, 'en', NULL, 'How to stream the service using \"DA WEB PLAYER\" ?', '<p>It&#39;s pretty simple, just copy and paste in your web browser&gt;&gt;<br />\r\n<a href=\"http://dastreamz-player.xyz:8080/webplayer\">http://dastreamz-player.xyz:8080/webplayer</a><br />\r\nType any name from your choice in the &quot;Any Name&quot; field<br />\r\nEnter your service Username<br />\r\nEnter your service Password<br />\r\nHit &quot;ADD USER&quot;</p>\r\n\r\n<div class=\"simple-translate-system-theme\" id=\"simple-translate\">\r\n<div>\r\n<div class=\"simple-translate-button isShow\" style=\"background-image: url(&quot;moz-extension://1bc4d616-890e-449c-ac42-771e2a393ca2/icons/512.png&quot;); height: 22px; width: 22px; top: 29px; left: -15px;\">&nbsp;</div>\r\n\r\n<div class=\"simple-translate-panel \" style=\"width: 600px; height: 300px; top: 0px; left: 0px; font-size: 13px;\">\r\n<div class=\"simple-translate-result-wrapper\" style=\"overflow: hidden;\">\r\n<div class=\"simple-translate-move\" draggable=\"true\">&nbsp;</div>\r\n\r\n<div class=\"simple-translate-result-contents\">\r\n<p class=\"simple-translate-result\" dir=\"auto\">&nbsp;</p>\r\n\r\n<p class=\"simple-translate-candidate\" dir=\"auto\">&nbsp;</p>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>', '<p>It&#39;s pretty simple, just copy and paste in your web browser&gt;&gt;<br />\r\n<a href=\"http://dastreamz-player.xyz:8080/webplayer\">http://dastreamz-player.xyz:8080/webplayer</a><br />\r\nType any name from your choice in the &quot;Any Name&quot; field<br />\r\nEnter your service Username<br />\r\nEnter your service Password<br />\r\nHit &quot;ADD USER&quot;</p>\r\n\r\n<div class=\"simple-translate-system-theme\" id=\"simple-translate\">\r\n<div>\r\n<div class=\"simple-translate-button isShow\" style=\"background-image: url(&quot;moz-extension://1bc4d616-890e-449c-ac42-771e2a393ca2/icons/512.png&quot;); height: 22px; width: 22px; top: 39px; left: 8px;\">&nbsp;</div>\r\n\r\n<div class=\"simple-translate-panel \" style=\"width: 600px; height: 300px; top: 0px; left: 0px; font-size: 13px;\">\r\n<div class=\"simple-translate-result-wrapper\" style=\"overflow: hidden;\">\r\n<div class=\"simple-translate-move\" draggable=\"true\">&nbsp;</div>\r\n\r\n<div class=\"simple-translate-result-contents\">\r\n<p class=\"simple-translate-result\" dir=\"auto\">&nbsp;</p>\r\n\r\n<p class=\"simple-translate-candidate\" dir=\"auto\">&nbsp;</p>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>', NULL, NULL),
+(8, 4, 'es', NULL, 'How to stream the service using \"DA WEB PLAYER\" ?', '<p>It&#39;s pretty simple, just copy and paste in your web browser&gt;&gt; http://dastreamz-player.xyz:8080/webplayer Type any name from your choice in the &quot;Any Name&quot; field Enter your service Username Enter your service Password Hit &quot;ADD USER&quot;</p>', NULL, NULL, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

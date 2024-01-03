@@ -5,33 +5,40 @@
 
         [
             'view'=>true,
-            'sel_routs'=>'ShopCustomer',
+            'sel_routs'=>'FAQ',
             'type'=>'many',
-            'text'=> 'admin/menu.shop_customer',
-            'icon'=>'fas fa-user-tie',
-            'roleView'=>'ShopCustomer_view',
+            'text'=> 'admin/menu.faq',
+            'icon'=>'fas fa-question',
+            'roleView'=>'Faq_view',
             'submenu'=>[
                 [
-                    'sel_routs'=> 'Customer',
-                    'url'=> 'ShopCustomer.Customer.index',
-                    'roleView'=>'ShopCustomer_view',
-                    'text'=> 'admin/menu.shop_customer_list',
-                    'icon'=>'fas fa-list'
+                    'sel_routs'=> 'FaqCat',
+                    'url'=> 'FAQ.FaqCat.index',
+                    'roleView'=>'Faq_view',
+                    'text'=> 'Categories',
+                    'icon'=>'fas fa-bolt'
+                ],
+                [
+                    'sel_routs'=> 'FaqList',
+                    'url'=> 'FAQ.FaqList.index',
+                    'roleView'=>'Faq_view',
+                    'text'=> 'Questions',
+                    'icon'=>'fas fa-wrench'
                 ],
 
 
-            ],
-        ], #ShopCustomer
+                [
+                    'sel_routs'=> 'OrderConfig',
+                    'url'=> 'ShopOrders.OrderConfig.Config',
+                    'roleView'=>'ShopOrders_view',
+                    'text'=> 'admin/menu.setting',
+                    'icon'=>'fas fa-cogs'
+                ],
 
-        [
-            'view'=>true,
-            'sel_routs'=>'FAQ',
-            'type'=>'one',
-            'text'=> 'admin/menu.faq',
-            'url'=> 'FAQ.FaqList.index',
-            'icon'=>'fas fa-question',
-            'roleView'=>'Faq_view',
-        ],#FAQ
+            ],
+        ], #ShopOrders
+
+
 
         [
             'view'=>true,

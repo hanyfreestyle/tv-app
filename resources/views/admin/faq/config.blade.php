@@ -21,7 +21,7 @@
             <div class="alert alert-dark alert-dismissible">
                 {{ __('admin/menu.faq') }}
             </div>
-            <x-def-settings modelname="FaqList" :filterid="false" :editor="true">
+            <x-def-settings modelname="FaqList" :more-photo-filterid="true" >
 
             </x-def-settings>
         </div>

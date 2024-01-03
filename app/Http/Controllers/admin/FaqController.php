@@ -3,10 +3,16 @@
 namespace App\Http\Controllers\admin;
 
 use App\Helpers\AdminHelper;
+use App\Helpers\PuzzleUploadProcess;
 use App\Http\Controllers\AdminMainController;
+use App\Http\Requests\admin\FaqPhotoRequest;
 use App\Http\Requests\admin\FaqRequest;
+use App\Http\Requests\admin\ProductPhotoRequest;
+use App\Models\admin\BlogPost;
+use App\Models\admin\BlogPostPhoto;
 use App\Models\admin\Faq;
 use App\Models\admin\FaqCategory;
+use App\Models\admin\FaqPhoto;
 use App\Models\admin\FaqTranslation;
 use Cache;
 use DB;
@@ -255,4 +261,62 @@ class FaqController extends AdminMainController
     }
 
 
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#|||||||||||||||||||||||||||||||||||||| #     ListMorePhoto
+    public function ListMorePhoto($id)
+    {
+        $pageData = $this->pageData;
+        $pageData['ViewType'] = "Edit";
+        $Faq = Faq::findOrFail($id) ;
+        $FaqPhotos = FaqPhoto::where('faq_id','=',$id)->orderBy('position')->get();
+        return view('admin.faq.photos',compact('FaqPhotos','pageData','Faq'));
+    }
+
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#|||||||||||||||||||||||||||||||||||||| #     AddMorePhotos
+    public function AddMorePhotos(FaqPhotoRequest $request)
+    {
+        $saveImgData = new PuzzleUploadProcess();
+        $saveImgData->setCountOfUpload('2');
+        $saveImgData->setUploadDirIs('faq/'.$request->blog_id);
+        $saveImgData->setnewFileName($request->input('name'));
+        $saveImgData->UploadMultiple($request);
+
+        foreach ($saveImgData->sendSaveData as $newPhoto){
+            $saveData =  FaqPhoto::findOrNew('0');
+            $saveData->faq_id   =  $request->faq_id;
+            $saveData->photo = $newPhoto['photo']['file_name'];
+            $saveData->photo_thum_1 = $newPhoto['photo_thum_1']['file_name'];
+            $saveData->save();
+        }
+        self::ClearCash();
+        return back()->with('Add.Done',"");
+    }
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#|||||||||||||||||||||||||||||||||||||| #     sortDefPhotoList
+    public function sortPhotoSave(Request $request){
+        $positions = $request->positions;
+        foreach($positions as $position) {
+            $id = $position[0];
+            $newPosition = $position[1];
+            $saveData =  FaqPhoto::findOrFail($id) ;
+            $saveData->position = $newPosition;
+            $saveData->save();
+        }
+        self::ClearCash();
+        return response()->json(['success'=>$positions]);
+    }
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#|||||||||||||||||||||||||||||||||||||| #     More_PhotosDestroy
+    public function More_PhotosDestroy($id){
+        $deleteRow = FaqPhoto::findOrFail($id);
+        $deleteRow = AdminHelper::DeleteAllPhotos($deleteRow);
+        $deleteRow->delete();
+        self::ClearCash();
+        return back()->with('confirmDelete',"");
+    }
 }

@@ -11,7 +11,7 @@
             </div>
 
             <div class="col-3 text-left">
-                <x-action-button  url="{{route($PrefixRoute.'.index')}}"  type="back" />
+                <x-action-button  url="{{route($PrefixCatRoute.'.index')}}"  type="back" />
             </div>
         </div>
     </x-html-section>
