@@ -33,7 +33,7 @@ Route::post('/Faq/Category/update/{id}',[FaqCategoryController::class,'storeUpda
 Route::get('/Faq/Category/SoftDelete/',[FaqCategoryController::class,'SoftDeletes'])->name('FAQ.FaqCat.SoftDelete');
 Route::get('/Faq/Category/restore/{id}',[FaqCategoryController::class,'restored'])->name('FAQ.FaqCat.restore');
 Route::get('/Faq/Category/force/{id}',[FaqCategoryController::class,'ForceDeletes'])->name('FAQ.FaqCat.force');
-Route::get('/Faq/emptyPhoto/{id}', [FaqCategoryController::class,'emptyPhoto'])->name('FAQ.FaqCat.emptyPhoto');
+Route::get('/Faq/Category/emptyPhoto/{id}', [FaqCategoryController::class,'emptyPhoto'])->name('FAQ.FaqCat.emptyPhoto');
 Route::get('/Faq/Sort/{Categoryid}',[FaqController::class,'Sort'])->name('FAQ.FaqCat.Sort');
 
 
@@ -50,6 +50,7 @@ Route::post('/Faq/SaveSort', [FaqController::class,'SaveSort'])->name('FAQ.FaqLi
 Route::get('/Faq/SoftDelete/',[FaqController::class,'SoftDeletes'])->name('FAQ.FaqList.SoftDelete');
 Route::get('/Faq/restore/{id}',[FaqController::class,'restored'])->name('FAQ.FaqList.restore');
 Route::get('/Faq/force/{id}',[FaqController::class,'ForceDeletes'])->name('FAQ.FaqList.force');
+Route::get('/Faq/emptyPhoto/{id}', [FaqController::class,'emptyPhoto'])->name('FAQ.FaqList.emptyPhoto');
 
 Route::get('/Faq/photos/{id}',[FaqController::class,'ListMorePhoto'])->name('FAQ.FaqList.More_Photos');
 Route::post('/Faq/saveSort', [FaqController::class,'sortPhotoSave'])->name('FAQ.FaqList.sortPhotoSave');

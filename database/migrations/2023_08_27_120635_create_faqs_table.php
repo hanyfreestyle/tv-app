@@ -12,6 +12,8 @@ return new class extends Migration
         Schema::create('faqs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->boolean("is_active")->default(true);
+            $table->string("photo")->nullable();
+            $table->string("photo_thum_1")->nullable();
             $table->integer('url_type')->default(0);
             $table->softDeletes();
             $table->timestamps();

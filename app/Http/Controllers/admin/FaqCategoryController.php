@@ -79,7 +79,7 @@ class FaqCategoryController extends AdminMainController
         $pageData['ViewType'] = "List";
         $pageData['Trashed'] = FaqCategory::onlyTrashed()->count();
         $FaqCategories = self::getSelectQuery(FaqCategory::defquery());
-        return view('admin.faq.category_index',compact('pageData','FaqCategories'));
+       return view('admin.faq.category_index',compact('pageData','FaqCategories'));
     }
 
 
@@ -127,7 +127,7 @@ class FaqCategoryController extends AdminMainController
 
         $saveImgData = new PuzzleUploadProcess();
         $saveImgData->setCountOfUpload('2');
-        $saveImgData->setUploadDirIs('faq/'.$saveData->id);
+        $saveImgData->setUploadDirIs('faq-cat/'.$saveData->id);
         $saveImgData->setnewFileName($request->input('en.slug'));
         $saveImgData->UploadOne($request);
         $saveData = AdminHelper::saveAndDeletePhoto($saveData,$saveImgData);

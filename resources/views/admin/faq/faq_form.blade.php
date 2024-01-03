@@ -3,13 +3,16 @@
 @section('content')
 
     <x-breadcrumb-def :pageData="$pageData"/>
-    <x-html-section>
-        <div class="row mb-3">
-            <div class="col-12 text-left">
-                <x-action-button url="{{route($PrefixRoute.'.More_Photos',$Faq->id)}}"  count="{{$Faq->more_photos_count}}" type="morePhoto"   />
+    @if($pageData['ViewType'] == 'Edit')
+        <x-html-section>
+            <div class="row mb-3">
+                <div class="col-12 text-left">
+                    <x-action-button url="{{route($PrefixRoute.'.More_Photos',$Faq->id)}}"  count="{{$Faq->more_photos_count}}" type="morePhoto"   />
+                </div>
             </div>
-        </div>
-    </x-html-section>
+        </x-html-section>
+    @endif
+
 
     <x-html-section>
         <x-ui-card :page-data="$pageData">
@@ -67,6 +70,17 @@
                 <div class="row">
                     <x-form-check-active :row="$Faq" name="is_active" page-view="{{$pageData['ViewType']}}"/>
                 </div>
+
+
+                <div class="row">
+
+                    <hr>
+                </div>
+
+                <x-form-upload-file view-type="{{$pageData['ViewType']}}" :row-data="$Faq"
+                                    :multiple="false"
+                                    thisfilterid="{{ \App\Helpers\AdminHelper::arrIsset($modelSettings,$controllerName.'_filterid',0) }}"
+                                    :emptyphotourl="$PrefixRoute.'.emptyPhoto'"  />
 
                 <div class="container-fluid">
                     <x-form-submit text="{{$pageData['ViewType']}}" />

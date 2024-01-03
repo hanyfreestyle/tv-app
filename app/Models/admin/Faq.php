@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Faq extends Model implements TranslatableContract
@@ -59,7 +60,12 @@ class Faq extends Model implements TranslatableContract
 
 
 
-
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#|||||||||||||||||||||||||||||||||||||| # more_photos
+    public function more_photos(): HasMany
+    {
+        return $this->hasMany(FaqPhoto::class,'faq_id','id');
+    }
 
 //    public function categoryName(): BelongsTo
 //    {

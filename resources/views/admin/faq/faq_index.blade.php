@@ -24,6 +24,7 @@
                         <thead>
                         <tr>
                             <th class="TD_20">#</th>
+                            <th class="TD_20"></th>
                             @foreach ( config('app.WebLang') as $key=>$lang)
                                 <th>{{__('admin/def.form_name_ar')}}</th>
                             @endforeach
@@ -49,6 +50,8 @@
                         @foreach($Faqs as $row)
                             <tr>
                                 <td>{{$row->id}}</td>
+                                <td class="tc">{!!  \App\Helpers\AdminHelper::printTableImage($row) !!} </td>
+
                                 @foreach ( config('app.WebLang') as $key=>$lang)
                                     <td>{{ $row->translate($key)->name ?? ''}}</td>
                                 @endforeach

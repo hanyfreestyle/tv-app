@@ -21,17 +21,6 @@
                                 reqname="{{ $key }}.name"
                                 value="{{old($key.'.name',$Category->translateOrNew($key)->name)}}"
                             />
-
-{{--                            <x-trans-input--}}
-{{--                                label="Slug ({{ ($key) }})"--}}
-{{--                                inputid="slug_{{ $key }}"--}}
-{{--                                name="{{ $key }}[slug]"--}}
-{{--                                dir="{{ $key }}"--}}
-{{--                                reqname="{{ $key }}.slug"--}}
-{{--                                value="{{old($key.'.slug',$Category->translateOrNew($key)->slug)}}"--}}
-{{--                                :reqspan="true"--}}
-{{--                            />--}}
-
                         </div>
                     @endforeach
                 </div>

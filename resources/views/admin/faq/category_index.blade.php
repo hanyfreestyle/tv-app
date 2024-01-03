@@ -46,7 +46,7 @@
                                 <td class="tc">{!!  \App\Helpers\AdminHelper::printTableImage($Category) !!} </td>
 
                                 @foreach ( config('app.WebLang') as $key=>$lang)
-                                <td>{{ $Category->translate($key)->name ?? ''}}</td>
+                                    <td>{{ $Category->translate($key)->name ?? ''}}</td>
                                 @endforeach
 
                                 @if($pageData['ViewType'] == 'deleteList')

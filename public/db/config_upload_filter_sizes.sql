@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2024 at 04:26 PM
+-- Generation Time: Jan 03, 2024 at 08:42 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 
 INSERT INTO `config_upload_filter_sizes` (`id`, `filter_id`, `type`, `new_w`, `new_h`, `canvas_back`, `get_more_option`, `get_add_text`, `get_watermark`) VALUES
 (1, 2, 4, 500, 335, NULL, 0, 0, 0),
-(2, 4, 4, 400, 400, '#FFFFFF', 0, 0, 0),
+(2, 4, 4, 800, 400, '#FFFFFF', 0, 0, 0),
 (3, 5, 4, 800, 600, '#ffffff', 0, 0, 0),
 (4, 5, 4, 320, 240, '#ffffff', 0, 0, 0),
 (8, 3, 4, 400, 400, '#FFFFFF', 0, 0, 0);

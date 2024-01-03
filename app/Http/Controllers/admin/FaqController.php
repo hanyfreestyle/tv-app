@@ -17,6 +17,7 @@ use App\Models\admin\Faq;
 use App\Models\admin\FaqCategory;
 use App\Models\admin\FaqPhoto;
 use App\Models\admin\FaqTranslation;
+use App\Models\admin\Product;
 use Cache;
 use DB;
 use Illuminate\Http\Request;
@@ -126,16 +127,6 @@ class FaqController extends AdminMainController
         })
             ->paginate(10);
 
-
-
-
-        dd($Faqs);
-
-//        $Category = FaqCategory::with(['faqs' => function ($query) {
-//            $query->orderBy('postion','ASC');
-//        }])->where('id',$Categoryid)->firstOrFail();
-
-
         return view('admin.faq.faq_index',compact('pageData','Faqs'));
     }
 
@@ -177,6 +168,16 @@ class FaqController extends AdminMainController
         $saveData->FaqToCategories()->sync($categories);
 
 
+        $saveImgData = new PuzzleUploadProcess();
+        $saveImgData->setCountOfUpload('2');
+        $saveImgData->setUploadDirIs('faq/'.$saveData->id);
+        $saveImgData->setnewFileName('hany');
+        $saveImgData->UploadOne($request);
+        $saveData = AdminHelper::saveAndDeletePhoto($saveData,$saveImgData);
+        $saveData->save();
+
+
+
         foreach ( config('app.WebLang') as $key=>$lang) {
             $saveTranslation = FaqTranslation::where('faq_id',$saveData->id)->where('locale',$key)->firstOrNew();
             $saveTranslation->faq_id = $saveData->id;
@@ -199,12 +200,24 @@ class FaqController extends AdminMainController
         }
     }
 
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#|||||||||||||||||||||||||||||||||||||| #     EmptyPhoto
+    public function emptyPhoto($id){
+        $rowData = Faq::findOrFail($id);
+        $rowData = AdminHelper::DeleteAllPhotos($rowData,true);
+        $rowData->save();
+        self::ClearCash();
+        return back();
+    }
+
+
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| #     destroy
     public function destroy($id)
     {
         $deleteRow = Faq::findOrFail($id);
-        $deleteRow = AdminHelper::DeleteAllPhotos($deleteRow);
+       /// $deleteRow = AdminHelper::DeleteAllPhotos($deleteRow);
         $deleteRow->delete();
         self::ClearCash();
         return back()->with('confirmDelete',"");
@@ -223,12 +236,18 @@ class FaqController extends AdminMainController
 #|||||||||||||||||||||||||||||||||||||| #     ForceDeletes
     public function ForceDeletes($id)
     {
-        $deleteRow =  Faq::onlyTrashed()->where('id',$id)->firstOrFail();
+        $deleteRow = Faq::onlyTrashed()->where('id',$id)->with('more_photos')->firstOrFail();
+        if(count($deleteRow->more_photos) > 0){
+            foreach ($deleteRow->more_photos as $del_photo ){
+                AdminHelper::DeleteAllPhotos($del_photo);
+            }
+        }
         $deleteRow = AdminHelper::DeleteAllPhotos($deleteRow);
         $deleteRow->forceDelete();
         self::ClearCash();
         return back()->with('confirmDelete',"");
     }
+
 
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -243,22 +262,6 @@ class FaqController extends AdminMainController
         }])->where('id',$Categoryid)->firstOrFail();
         return view('admin.faq.sort',compact('Category','pageData'));
     }
-
-//#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-//#|||||||||||||||||||||||||||||||||||||| #     SaveSort
-//    public function SaveSort(Request $request){
-//        $positions = $request->positions;
-//        foreach($positions as $position) {
-//            $id = $position[0];
-//            $newPosition = $position[1];
-//            $saveData =  Faq::findOrFail($id) ;
-//            $saveData->postion = $newPosition;
-//            $saveData->save();
-//        }
-//        self::ClearCash();
-//        return response()->json(['success'=>$positions]);
-//    }
-
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| #     SaveSort
@@ -304,8 +307,6 @@ class FaqController extends AdminMainController
         $Faq = Faq::findOrFail($id) ;
         $FaqPhotos = FaqPhoto::where('faq_id','=',$id)->orderBy('position')->get();
         $FaqPhotosData = $FaqPhotos->toArray();
-       // dd($FaqPhotosData);
-
         return view('admin.faq.photos_edit',compact('FaqPhotos','pageData','Faq','FaqPhotosData'));
     }
 
@@ -386,7 +387,6 @@ class FaqController extends AdminMainController
             ->firstOrFail();
 
         $oldData = $rowData->toArray();
-//        dd($oldData);
         return view('admin.faq.photo_edit',compact('rowData','pageData','oldData'));
     }
 
@@ -396,8 +396,6 @@ class FaqController extends AdminMainController
     public function editPhotoUpdate(FaqPhotoEditRequest $request,$id){
 
         $saveData =  FaqPhoto::findOrNew($id) ;
-//        dd($saveData);
-
 
         $saveImgData = new PuzzleUploadProcess();
         $saveImgData->setCountOfUpload('2');
