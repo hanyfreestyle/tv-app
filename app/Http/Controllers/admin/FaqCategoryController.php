@@ -78,7 +78,6 @@ class FaqCategoryController extends AdminMainController
         $pageData = $this->pageData;
         $pageData['ViewType'] = "List";
         $pageData['Trashed'] = FaqCategory::onlyTrashed()->count();
-        $pageData['ConfigUrl'] = route('FAQ.Config');
         $FaqCategories = self::getSelectQuery(FaqCategory::defquery());
         return view('admin.faq.category_index',compact('pageData','FaqCategories'));
     }
@@ -150,7 +149,7 @@ class FaqCategoryController extends AdminMainController
 
         self::ClearCash();
 
-       if($id == '0'){
+        if($id == '0'){
             return redirect(route($this->PrefixRoute.'.index'))->with('Add.Done',"");
         }else{
             return redirect(route($this->PrefixRoute.'.index'))->with('Edit.Done',"");

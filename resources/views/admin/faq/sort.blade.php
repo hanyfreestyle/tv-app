@@ -5,13 +5,13 @@
     <x-breadcrumb-def :pageData="$pageData"/>
 
     <x-html-section>
-        <div class="row mb-3">
-            <div class="col-9">
-                <h1 class="def_h1">{{ $Category->name }}</h1>
-            </div>
-
+        <div class="row mb-3 top_header_info">
             <div class="col-3 text-left">
                 <x-action-button  url="{{route($PrefixCatRoute.'.index')}}"  type="back" />
+            </div>
+
+            <div class="col-9">
+                <h1 class="def_h1">{{ $Category->name }}</h1>
             </div>
         </div>
     </x-html-section>

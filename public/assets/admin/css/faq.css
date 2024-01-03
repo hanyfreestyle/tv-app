@@ -1,0 +1,20 @@
+.top_header_info{
+
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 10px;
+    padding: 20px 20px;
+}
+
+.top_header_info .def_h1{
+    font-size: 20px;
+
+
+
+}
+
+.sort_banner_name{
+    font-weight: normal;
+    font-size: 16px;
+    cursor: pointer;
+
+}

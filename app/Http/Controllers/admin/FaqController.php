@@ -67,7 +67,7 @@ class FaqController extends AdminMainController
             'TitlePage' =>  $this->PageTitle ,
             'selMenu'=> $this->selMenu,
             'prefix_Role'=> $this->PrefixRole ,
-            'restore'=> 0 ,
+            'restore'=> 1 ,
         ];
         $pageData = AdminHelper::returnPageDate($this->controllerName,$sendArr);
         $this->pageData = $pageData ;
@@ -89,21 +89,27 @@ class FaqController extends AdminMainController
     {
         $pageData = $this->pageData;
         $pageData['ViewType'] = "List";
-        $pageData['ConfigUrl'] = route('FAQ.Config');
+        $pageData['Trashed'] = Faq::onlyTrashed()->count();
 
         $Faqs = Faq::Defquery()->with('FaqToCategories')
             ->orderBy('id','desc')
-
             ->paginate(10);
-
-//        $Faqs = Faq::where('id','!=',0)
-//
-//        ->paginate(10);
-  // dd($Faqs);
-
 
         return view('admin.faq.faq_index',compact('pageData','Faqs'));
     }
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#|||||||||||||||||||||||||||||||||||||| #     SoftDeletes
+    public function SoftDeletes()
+    {
+        $pageData = $this->pageData ;
+        $pageData['ViewType'] = "deleteList";
+
+        $Faqs = self::getSelectQuery(Faq::onlyTrashed());
+        self::ClearCash();
+        return view('admin.faq.faq_index',compact('pageData','Faqs'));
+    }
+
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| #     ListCategory
@@ -120,7 +126,7 @@ class FaqController extends AdminMainController
 
 
 
-  dd($Faqs);
+        dd($Faqs);
 
 //        $Category = FaqCategory::with(['faqs' => function ($query) {
 //            $query->orderBy('postion','ASC');
@@ -164,7 +170,6 @@ class FaqController extends AdminMainController
 
         $saveData =  Faq::findOrNew($id);
         $saveData->is_active = intval((bool) $request->input( 'is_active'));
-        $saveData->url_type = intval((bool) $request->input( 'url_type'));
         $saveData->save();
         $saveData->FaqToCategories()->sync($categories);
 
@@ -176,8 +181,10 @@ class FaqController extends AdminMainController
             $saveTranslation->name = $request->input($key.'.name');
             $saveTranslation->des = $request->input($key.'.des');
             $saveTranslation->other = $request->input($key.'.other');
-            $saveTranslation->url  = $request->input($key.'.url');
-            $saveTranslation->url_but  = $request->input($key.'.url_but');
+
+            $saveTranslation->slug = AdminHelper::Url_Slug($request->input($key.'.slug'));
+            $saveTranslation->g_title = $request->input($key.'.g_title');
+            $saveTranslation->g_des = $request->input($key.'.g_des');
             $saveTranslation->save();
         }
 
@@ -195,6 +202,26 @@ class FaqController extends AdminMainController
     {
         $deleteRow = Faq::findOrFail($id);
         $deleteRow = AdminHelper::DeleteAllPhotos($deleteRow);
+        $deleteRow->delete();
+        self::ClearCash();
+        return back()->with('confirmDelete',"");
+    }
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#|||||||||||||||||||||||||||||||||||||| #     Restore
+    public function restored($id)
+    {
+        Faq::onlyTrashed()->where('id',$id)->restore();
+        self::ClearCash();
+        return back()->with('restore',"");
+    }
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#|||||||||||||||||||||||||||||||||||||| #     ForceDeletes
+    public function ForceDeletes($id)
+    {
+        $deleteRow =  Faq::onlyTrashed()->where('id',$id)->firstOrFail();
+        $deleteRow = AdminHelper::DeleteAllPhotos($deleteRow);
         $deleteRow->forceDelete();
         self::ClearCash();
         return back()->with('confirmDelete',"");
@@ -211,15 +238,6 @@ class FaqController extends AdminMainController
         $Category = FaqCategory::with(['faqs' => function ($query) {
             $query->orderBy('postion','ASC');
         }])->where('id',$Categoryid)->firstOrFail();
-
-//        $Category = FaqCategory::findOrFail($Categoryid);
-//        $pageData = $this->pageData;
-//        $pageData['ViewType'] = "List";
-//
-//        $Banners = Faq::with('translation')
-//            ->where('category_id',$Category->id)
-//            ->orderBy('postion','asc')
-//            ->get();
         return view('admin.faq.sort',compact('Category','pageData'));
     }
 

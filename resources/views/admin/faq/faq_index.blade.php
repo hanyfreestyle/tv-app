@@ -15,7 +15,7 @@
     </x-html-section>
 
     <x-html-section>
-        <x-ui-card  :page-data="$pageData" >
+        <x-ui-card  :page-data="$pageData"   add-button-name="Add Question" >
             <x-mass.confirm-massage/>
 
             @if(count($Faqs)>0)
@@ -24,41 +24,56 @@
                         <thead>
                         <tr>
                             <th class="TD_20">#</th>
-                            <th>{{__('admin/def.form_name_ar')}}</th>
-                            <th>{{__('admin/def.form_name_en')}}</th>
-                            <th class="TD_250">{{__('admin/def.Category')}}</th>
-                            <th class="tbutaction TD_50"></th>
-                            @can($PrefixRole.'_edit')
+                            @foreach ( config('app.WebLang') as $key=>$lang)
+                                <th>{{__('admin/def.form_name_ar')}}</th>
+                            @endforeach
+
+                            @if($pageData['ViewType'] == 'deleteList')
+                                <th>{{ __('admin/page.del_date') }}</th>
+                                <th></th>
+                                <th></th>
+                            @else
+                                <th class="TD_250">{{__('admin/def.Category')}}</th>
                                 <th class="tbutaction TD_50"></th>
-                            @endcan
-                            @can($PrefixRole.'_delete')
-                                <th class="tbutaction TD_50"></th>
-                            @endcan
+                                @can($PrefixRole.'_edit')
+                                    <th class="tbutaction TD_50"></th>
+                                @endcan
+                                @can($PrefixRole.'_delete')
+                                    <th class="tbutaction TD_50"></th>
+                                @endcan
+                            @endif
+
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($Faqs as $row)
                             <tr>
                                 <td>{{$row->id}}</td>
-                                <td>{{ $row->translate('en')->name}}</td>
-                                <td>{{ $row->translate('es')->name}}</td>
-                                <td>
+                                @foreach ( config('app.WebLang') as $key=>$lang)
+                                    <td>{{ $row->translate($key)->name ?? ''}}</td>
+                                @endforeach
+                                @if($pageData['ViewType'] == 'deleteList')
+                                    <td>{{$row->deleted_at}}</td>
+                                    <td class="tc"><x-action-button url="{{route($PrefixRoute.'.restore',$row->id)}}" type="restor" /></td>
+                                    <td class="tc"><x-action-button url="#" id="{{route($PrefixRoute.'.force',$row->id)}}" type="deleteSweet"/></td>
+                                @else
+                                    <td>
+                                        @foreach($row->FaqToCategories as $Category )
+                                            <a href="{{route($PrefixRoute.'.ListCategory',$Category->id)}}">
+                                                <span class="cat_table_name">{{$Category->name }}</span>
+                                            </a>
+                                        @endforeach
+                                    </td>
+                                    <td class="tc" >{!! is_active($row->is_active) !!}</td>
+                                    @can($PrefixRole.'_edit')
+                                        <td class="tc"><x-action-button url="{{route($PrefixRoute.'.More_Photos',$row->id)}}"  count="{{$row->more_photos_count}}" type="morePhoto" :tip="true" /></td>
+                                        <td class="tc"><x-action-button url="{{route($PrefixRoute.'.edit',$row->id)}}" type="edit" :tip="true" /></td>
+                                    @endcan
 
-                                    @foreach($row->FaqToCategories as $Category )
-                                        <a href="{{route($PrefixRoute.'.ListCategory',$Category->id)}}">
-                                            <span class="cat_table_name">{{$Category->name}}</span>
-                                        </a>
-                                    @endforeach
-                                </td>
-                                <td class="tc" >{!! is_active($row->is_active) !!}</td>
-                                @can($PrefixRole.'_edit')
-                                    <td class="tc"><x-action-button url="{{route($PrefixRoute.'.More_Photos',$row->id)}}"  count="{{$row->more_photos_count}}" type="morePhoto" :tip="true" /></td>
-                                    <td class="tc"><x-action-button url="{{route($PrefixRoute.'.edit',$row->id)}}" type="edit" :tip="true" /></td>
-                                @endcan
-
-                                @can($PrefixRole.'_delete')
-                                    <td class=""><x-action-button url="#" id="{{route($PrefixRoute.'.destroy',$row->id)}}" type="deleteSweet" :tip="true" /></td>
-                                @endcan
+                                    @can($PrefixRole.'_delete')
+                                        <td class=""><x-action-button url="#" id="{{route($PrefixRoute.'.destroy',$row->id)}}" type="deleteSweet" :tip="true" /></td>
+                                    @endcan
+                                @endif
                             </tr>
                         @endforeach
                         </tbody>

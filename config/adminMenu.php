@@ -16,7 +16,7 @@
                     'url'=> 'FAQ.FaqCat.index',
                     'roleView'=>'Faq_view',
                     'text'=> 'Categories',
-                    'icon'=>'fas fa-bolt'
+                    'icon'=>'fas fa-sitemap'
                 ],
                 [
                     'sel_routs'=> 'FaqList',
@@ -28,10 +28,10 @@
 
 
                 [
-                    'sel_routs'=> 'OrderConfig',
-                    'url'=> 'ShopOrders.OrderConfig.Config',
-                    'roleView'=>'ShopOrders_view',
-                    'text'=> 'admin/menu.setting',
+                    'sel_routs'=> 'FaqConfig',
+                    'url'=> 'FAQ.FaqConfig.Config',
+                    'roleView'=>'Faq_edit',
+                    'text'=> 'Settings',
                     'icon'=>'fas fa-cogs'
                 ],
 

@@ -31,13 +31,15 @@
 
     <link rel="stylesheet" href="{{ defAdminAssets('css/adminlte.css') }}">
     <link rel="stylesheet" href="{{ defAdminAssets('css/custom_admin.css') }}">
-    @if( thisCurrentLocale() == 'ar')
-        <link rel="stylesheet" href="{{ defAdminAssets('rtl/css/adminlte-rtl.css') }}">
-        <link rel="stylesheet" href="{{ defAdminAssets('rtl/css/custom.css') }}">
-        <link rel="stylesheet" href="{{ defAdminAssets('css/custom_ar.css') }}">
-    @elseif( thisCurrentLocale() == 'en')
-        <link rel="stylesheet" href="{{ defAdminAssets('css/custom_en.css') }}">
-    @endif
+{{--    @if( thisCurrentLocale() == 'ar')--}}
+{{--        <link rel="stylesheet" href="{{ defAdminAssets('rtl/css/adminlte-rtl.css') }}">--}}
+{{--        <link rel="stylesheet" href="{{ defAdminAssets('rtl/css/custom.css') }}">--}}
+{{--        <link rel="stylesheet" href="{{ defAdminAssets('css/custom_ar.css') }}">--}}
+{{--    @elseif( thisCurrentLocale() == 'en')--}}
+{{--        <link rel="stylesheet" href="{{ defAdminAssets('css/custom_en.css') }}">--}}
+{{--    @endif--}}
+    <link rel="stylesheet" href="{{ defAdminAssets('css/custom_en.css') }}">
+    <link rel="stylesheet" href="{{ defAdminAssets('css/faq.css') }}">
     @livewireStyles
 </head>
 

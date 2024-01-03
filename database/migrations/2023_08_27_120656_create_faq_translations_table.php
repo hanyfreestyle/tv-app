@@ -17,12 +17,10 @@ return new class extends Migration
             $table->string('slug')->nullable();
 
             $table->string('name')->nullable();
-            $table->text('des')->nullable();
+            $table->longText('des')->nullable();
             $table->longText('other')->nullable();
             $table->string('g_title')->nullable();
             $table->text('g_des')->nullable();
-//            $table->text('url')->nullable();
-//            $table->string('url_but')->nullable();
 
             $table->unique(['faq_id','locale']);
             $table->unique(['locale','slug']);

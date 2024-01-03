@@ -9,7 +9,7 @@
 
 
     <x-html-section>
-        <x-ui-card  :page-data="$pageData" >
+        <x-ui-card  :page-data="$pageData" add-button-name="Add Category">
             <x-mass.confirm-massage/>
 
             @if(count($FaqCategories)>0)
@@ -19,8 +19,9 @@
                         <tr>
                             <th class="TD_20">#</th>
                             <th class="TD_20"></th>
-                            <th>{{__('admin/def.form_name_ar')}}</th>
-                            <th>{{__('admin/def.form_name_en')}}</th>
+                            @foreach ( config('app.WebLang') as $key=>$lang)
+                                <th>{{__('admin/def.form_name_ar')}}</th>
+                            @endforeach
 
                             @if($pageData['ViewType'] == 'deleteList')
                                 <th>{{ __('admin/page.del_date') }}</th>
@@ -43,8 +44,10 @@
                             <tr>
                                 <td>{{$Category->id}}</td>
                                 <td class="tc">{!!  \App\Helpers\AdminHelper::printTableImage($Category) !!} </td>
-                                <td>{{ $Category->translate('en')->name}}</td>
-                                <td>{{ $Category->translate('es')->name}}</td>
+
+                                @foreach ( config('app.WebLang') as $key=>$lang)
+                                <td>{{ $Category->translate($key)->name ?? ''}}</td>
+                                @endforeach
 
                                 @if($pageData['ViewType'] == 'deleteList')
                                     <td>{{$Category->deleted_at}}</td>

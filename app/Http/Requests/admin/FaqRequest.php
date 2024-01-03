@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\admin;
 
+use App\Helpers\AdminHelper;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
 
@@ -13,11 +14,21 @@ class FaqRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation()
+    {
+        $data = $this->toArray();
+        foreach(config('app.WebLang') as $key=>$lang){
+            data_set($data, $key.'.slug',  AdminHelper::Url_Slug($data[$key]['slug']) );
+        }
+        $this->merge($data);
+    }
 
     public function rules(Request $request): array
     {
 
-       // dd($request->all());
+        foreach(config('app.WebLang') as $key=>$lang){
+            $request->merge([$key.'.slug' => AdminHelper::Url_Slug($request[$key]['slug'])]);
+        }
 
         $id = $this->route('id');
 
@@ -29,7 +40,16 @@ class FaqRequest extends FormRequest
         foreach(config('app.WebLang') as $key=>$lang){
             $rules[$key.".name"] =   'required';
             $rules[$key.".des"] =   'required';
-            $rules[$key.".url"] =   'nullable|url';
+//            $rules[$key.".g_title"] =   'required';
+//            $rules[$key.".g_des"] =   'required';
+
+            if($id == '0'){
+                $rules[$key.".slug"] = 'required|unique:faq_translations,slug';
+            }else{
+                $rules[$key.".slug"] = "required|unique:faq_translations,slug,$id,faq_id,locale,$key";
+            }
+
+
         }
 
         return $rules;
