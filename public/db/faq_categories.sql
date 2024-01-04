@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2024 at 04:05 PM
+-- Generation Time: Jan 04, 2024 at 09:23 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -26,10 +26,12 @@ SET time_zone = "+00:00";
 --
 
 INSERT INTO `faq_categories` (`id`, `photo`, `photo_thum_1`, `is_active`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, NULL, NULL, 1, NULL, '2024-01-02 14:39:29', '2024-01-02 14:39:29'),
-(2, NULL, NULL, 1, NULL, '2024-01-02 14:40:40', '2024-01-02 14:40:40'),
-(3, NULL, NULL, 1, NULL, '2024-01-02 14:40:53', '2024-01-02 14:40:53'),
-(4, NULL, NULL, 1, NULL, '2024-01-02 14:41:09', '2024-01-02 14:41:09');
+(1, NULL, NULL, 1, NULL, '2024-01-04 08:20:16', '2024-01-04 08:20:16'),
+(2, NULL, NULL, 1, NULL, '2024-01-04 08:21:49', '2024-01-04 08:21:49'),
+(3, NULL, NULL, 1, NULL, '2024-01-04 08:22:07', '2024-01-04 08:22:07'),
+(4, NULL, NULL, 1, NULL, '2024-01-04 08:22:16', '2024-01-04 08:22:16'),
+(5, NULL, NULL, 1, NULL, '2024-01-04 08:22:27', '2024-01-04 08:22:27'),
+(6, NULL, NULL, 1, NULL, '2024-01-04 08:22:38', '2024-01-04 08:22:38');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

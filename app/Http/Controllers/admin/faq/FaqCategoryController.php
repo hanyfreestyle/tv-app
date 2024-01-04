@@ -14,21 +14,19 @@ use Illuminate\Support\Facades\View;
 
 class FaqCategoryController extends AdminMainController
 {
-    public $controllerName ;
-    public $PageTitle ;
     public $selMenu ;
+    public $controllerName ;
     public $PrefixRole ;
     public $PrefixRoute ;
     public $pageData ;
+    public $PageTitle ;
 
     function __construct(
-
         $selMenu = 'FAQ.',
         $controllerName = 'FaqCat',
         $PrefixRole = 'Faq',
         $PrefixRoute = '#',
         $pageData = array(),
-
     )
     {
         parent::__construct();

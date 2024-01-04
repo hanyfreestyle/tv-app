@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2024 at 04:04 PM
+-- Generation Time: Jan 04, 2024 at 09:23 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -26,14 +26,12 @@ SET time_zone = "+00:00";
 --
 
 INSERT INTO `faq_category_translations` (`id`, `category_id`, `locale`, `slug`, `name`, `des`, `g_title`, `g_des`) VALUES
-(1, 1, 'en', 'da-web-player', 'DA WEB PLAYER', NULL, 'Page Title', 'Page Description'),
-(2, 1, 'es', 'da-web-player', 'DA WEB PLAYER', NULL, 'Page Title', 'Page Description'),
-(3, 2, 'en', 'category-2', 'Category 2', NULL, NULL, NULL),
-(4, 2, 'es', 'category-2', 'Category 2', NULL, NULL, NULL),
-(5, 3, 'en', 'category-3', 'Category 3', NULL, NULL, NULL),
-(6, 3, 'es', 'category-3', 'Category 3', NULL, NULL, NULL),
-(7, 4, 'en', 'category-4', 'Category 4', NULL, NULL, NULL),
-(8, 4, 'es', 'category-4', 'Category 4', NULL, NULL, NULL);
+(1, 1, 'en', 'da-web-player', 'DA WEB PLAYER', NULL, 'DA WEB PLAYER', 'DA WEB PLAYER'),
+(2, 2, 'en', 'installation', 'Installation', NULL, 'Installation', 'Installation'),
+(3, 3, 'en', 'category-3', 'Category 3', NULL, 'Category 3', 'Category 3'),
+(4, 4, 'en', 'category-4', 'Category 4', NULL, 'Category 4', 'Category 4'),
+(5, 5, 'en', 'category-5', 'Category 5', NULL, 'Category 5', 'Category 5'),
+(6, 6, 'en', 'category-6', 'Category 6', NULL, 'Category 6', 'Category 6');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
