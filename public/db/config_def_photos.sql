@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2024 at 04:28 PM
+-- Generation Time: Jan 04, 2024 at 08:49 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -31,7 +31,7 @@ INSERT INTO `config_def_photos` (`id`, `cat_id`, `photo`, `photo_thum_1`, `photo
 (6, 'contact-from', 'images/def-photo/contact-from-taOS5rT9SI.webp', NULL, NULL, 0, '2023-09-06 19:37:35', '2023-09-06 19:37:35'),
 (14, 'form_login', 'images/def-photo/cust-login-5vzy5IZjUZ.webp', NULL, NULL, 0, '2023-09-29 00:45:03', '2023-09-29 03:16:32'),
 (15, 'form_sign_up', 'images/def-photo/form-sign-up-AlQFSq2P80.webp', NULL, NULL, 0, '2023-09-29 03:17:07', '2023-09-29 03:33:50'),
-(16, 'faq_def', 'images/def-photo/faq-def-9TpZuXA7wj.webp', 'images/def-photo/faq-def-QORHkGXyOo.webp', NULL, 0, '2024-01-02 15:24:52', '2024-01-02 15:24:52');
+(16, 'faq_def', 'images/def-photo/faq-def-l6MK9ENwYI.webp', 'images/def-photo/faq-def-ueQf4S6QTB.webp', NULL, 0, '2024-01-02 15:24:52', '2024-01-04 14:54:32');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
