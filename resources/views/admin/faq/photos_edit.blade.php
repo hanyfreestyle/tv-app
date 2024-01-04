@@ -25,7 +25,7 @@
                     <div class="row col-lg-12">
                         @foreach($FaqPhotosData as $Photo)
                             <div class="row col-lg-12">
-                                <div class="col-lg-2">
+                                <div class="{{$pageData['photoCol']}}">
                                     <p class="PhotoImageCard"><img src="{{ defImagesDir($Photo['photo']) }}"></p>
                                     @can($PrefixRole.'_edit')
                                         <p>
@@ -44,7 +44,7 @@
                                     <x-form-textarea
                                         label=""
                                         name="des_{{$key}}{{$Photo['id']}}"
-                                        topclass="col-lg-5 "
+                                        topclass="{{$pageData['TextCol']}} "
 
                                         value="{!! old('des_'.$key.$Photo['id'],$Photo['des_'.$key]) !!}"
                                     />

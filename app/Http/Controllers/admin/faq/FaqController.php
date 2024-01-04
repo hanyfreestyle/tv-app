@@ -293,9 +293,21 @@ class FaqController extends AdminMainController
     {
         $pageData = $this->pageData;
         $pageData['ViewType'] = "Edit";
+
         $Faq = Faq::findOrFail($id) ;
         $FaqPhotos = FaqPhoto::where('faq_id','=',$id)->orderBy('position')->get();
         $FaqPhotosData = $FaqPhotos->toArray();
+
+        if(count(config('app.WebLang')) == 1){
+            $pageData['photoCol'] = "col-lg-4";
+            $pageData['TextCol'] = "col-lg-8";
+        }else{
+            $pageData['photoCol'] = "col-lg-2";
+            $pageData['TextCol'] = "col-lg-5";
+
+        }
+
+
         return view('admin.faq.photos_edit',compact('FaqPhotos','pageData','Faq','FaqPhotosData'));
     }
 
@@ -376,6 +388,8 @@ class FaqController extends AdminMainController
             ->firstOrFail();
 
         $oldData = $rowData->toArray();
+
+
         return view('admin.faq.photo_edit',compact('rowData','pageData','oldData'));
     }
 
