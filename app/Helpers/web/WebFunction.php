@@ -9,6 +9,14 @@ if (!function_exists('defWebAssets')) {
         return app('url')->asset('assets/web/' . $path, $secure);
     }
 }
+
+if (!function_exists('defPdfFonts')) {
+    function defPdfFonts($path, $secure = null): string
+    {
+        return app('url')->asset('assets/pdf_fonts/' . $path, $secure);
+    }
+}
+
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| #     webContainer
 if (!function_exists('webContainer')) {

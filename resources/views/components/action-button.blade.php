@@ -1,5 +1,8 @@
 
 <a href="{{$url}}"
+   @if($blank)
+   target="_blank"
+   @endif
    @if($id)
    id="{{$id}}"
    @endif
@@ -14,4 +17,5 @@
         {{$printLable}}
     @endif
 </a>
+
 

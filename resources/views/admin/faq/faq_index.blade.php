@@ -25,9 +25,7 @@
                         <tr>
                             <th class="TD_20">#</th>
                             <th class="TD_20"></th>
-                            @foreach ( config('app.WebLang') as $key=>$lang)
-                                <th>{{__('admin/def.form_name_ar')}}</th>
-                            @endforeach
+                            <th>{{__('admin/def.form_name_ar')}}</th>
 
                             @if($pageData['ViewType'] == 'deleteList')
                                 <th>{{ __('admin/page.del_date') }}</th>
@@ -35,6 +33,9 @@
                                 <th></th>
                             @else
                                 <th class="TD_250">{{__('admin/def.Category')}}</th>
+                                <th class="tbutaction TD_50"></th>
+                                <th class="tbutaction TD_50"></th>
+                                <th class="tbutaction TD_50"></th>
                                 <th class="tbutaction TD_50"></th>
                                 @can($PrefixRole.'_edit')
                                     <th class="tbutaction TD_50"></th>
@@ -50,11 +51,9 @@
                         @foreach($Faqs as $row)
                             <tr>
                                 <td>{{$row->id}}</td>
-                                <td class="tc">{!!  \App\Helpers\AdminHelper::printTableImage($row) !!} </td>
-
-                                @foreach ( config('app.WebLang') as $key=>$lang)
-                                    <td>{{ $row->translate($key)->name ?? ''}}</td>
-                                @endforeach
+                                <td class="tc"><x-action-button url="{{route($PrefixRoute.'.More_Photos',$row->id)}}" icon="fas fa-link" /></td>
+{{--                                <td class="tc">{!!  \App\Helpers\AdminHelper::printTableImage($row) !!} </td>--}}
+                                <td>{{ $row->name ?? ''}}</td>
                                 @if($pageData['ViewType'] == 'deleteList')
                                     <td>{{$row->deleted_at}}</td>
                                     <td class="tc"><x-action-button url="{{route($PrefixRoute.'.restore',$row->id)}}" type="restor" /></td>
@@ -67,7 +66,10 @@
                                             </a>
                                         @endforeach
                                     </td>
+
                                     <td class="tc" >{!! is_active($row->is_active) !!}</td>
+                                    <td class="tc"><x-action-button url="{{route('Page_FaqView',$row->slug)}}" icon="fas fa-eye" bg="w" :blank="true" /></td>
+                                    <td class="tc"><x-action-button url="{{route($PrefixRoute.'.ExportPdf',$row->id)}}" icon="fas fa-file-pdf" bg="dark" :blank="true" /></td>
                                     @can($PrefixRole.'_edit')
                                         <td class="tc"><x-action-button url="{{route($PrefixRoute.'.More_Photos',$row->id)}}"  count="{{$row->more_photos_count}}" type="morePhoto" :tip="true" /></td>
                                         <td class="tc"><x-action-button url="{{route($PrefixRoute.'.edit',$row->id)}}" type="edit" :tip="true" /></td>

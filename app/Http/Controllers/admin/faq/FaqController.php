@@ -18,6 +18,9 @@ use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
+use Barryvdh\DomPDF\Facade\Pdf;
+
+
 class FaqController extends AdminMainController
 {
     public $controllerName ;
@@ -419,4 +422,18 @@ class FaqController extends AdminMainController
         return  back()->with('Edit.Done',__('general.alertMass.confirmEdit'));
 
     }
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#|||||||||||||||||||||||||||||||||||||| #
+    public function ExportPdf($id){
+       //dd($id);
+        $Faq = Faq::where('id',$id)->with('more_photos')->firstOrFail();
+        $data = $Faq->toArray();
+
+        $name = $Faq->slug;
+        $pdf = Pdf::loadView('admin.faq.pdf', ['data'=>$data])->setOption(['margin'=>0,'debugCss'=>false ]);
+        return $pdf->stream($name);
+
+    }
+
 }

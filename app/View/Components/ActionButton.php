@@ -19,6 +19,7 @@ class ActionButton extends Component
     public $sweetDelClass;
     public $printLable;
     public $count;
+    public $blank;
 
     public function __construct(
         $url = "#",
@@ -32,7 +33,7 @@ class ActionButton extends Component
         $sweetDelClass = '',
         $printLable = '',
         $count = null,
-
+        $blank = false,
     )
     {
        //  dd($printLable);
@@ -41,6 +42,7 @@ class ActionButton extends Component
         $this->tip = $tip;
         $this->url = $url;
         $this->icon = $icon;
+        $this->blank = $blank;
 
         $this->size = getButSize($size);
         $this->bg = getBgColor($bg);

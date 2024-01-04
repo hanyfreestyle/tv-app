@@ -61,3 +61,6 @@ Route::post('Faq/editPhotoUpdate/{id}', [FaqController::class,'editPhotoUpdate']
 
 Route::get('/Faq/photosList/{faq_id}',[FaqController::class,'ListPhotosEdit'])->name('FAQ.FaqList.ListPhotosEdit');
 Route::post('/Faq/photosListUpdate', [FaqController::class,'ListPhotosUpdate'])->name('FAQ.FaqList.ListPhotosUpdate');
+
+Route::get('/Faq/pdf/{id}',[FaqController::class,'ExportPdf'])->name('FAQ.FaqList.ExportPdf');
+//Route::get('/Faq/photos/{id}',[FaqController::class,'ListMorePhoto'])->name('FAQ.FaqList.More_Photos');
