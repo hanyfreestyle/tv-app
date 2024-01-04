@@ -1,7 +1,7 @@
 <?php
 use App\Helpers\AdminHelper;
-use App\Http\Controllers\admin\FaqCategoryController;
-use App\Http\Controllers\admin\FaqController;
+use App\Http\Controllers\admin\faq\FaqCategoryController;
+use App\Http\Controllers\admin\faq\FaqController;
 use App\Http\Controllers\admin\PageController;
 use App\Http\Controllers\AdminMainController;
 

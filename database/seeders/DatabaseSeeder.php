@@ -3,22 +3,16 @@
 namespace Database\Seeders;
 
 
-use Database\Seeders\admin\BannerCategorySeeder;
-use Database\Seeders\admin\BannerCategoryTranslationSeeder;
-use Database\Seeders\admin\BannerSeeder;
-use Database\Seeders\admin\BannerTranslationSeeder;
-use Database\Seeders\admin\BlogPostSeeder;
-use Database\Seeders\admin\BlogPostTranslationSeeder;
-use Database\Seeders\admin\FaqCategorySeeder;
-use Database\Seeders\admin\FaqCategoryTranslationSeeder;
-use Database\Seeders\admin\FaqPivotSeeder;
-use Database\Seeders\admin\FaqSeeder;
-use Database\Seeders\admin\FaqTranslationSeeder;
-use Database\Seeders\admin\OurClientSeeder;
-use Database\Seeders\admin\OurClientTranslationSeeder;
+use Database\Seeders\admin\faq\FaqCategorySeeder;
+use Database\Seeders\admin\faq\FaqCategoryTranslationSeeder;
+use Database\Seeders\admin\faq\FaqPhotoSeeder;
+use Database\Seeders\admin\faq\FaqPivotSeeder;
+use Database\Seeders\admin\faq\FaqSeeder;
+use Database\Seeders\admin\faq\FaqTranslationSeeder;
+
 use Database\Seeders\admin\PageSeeder;
 use Database\Seeders\admin\PageTranslationSeeder;
- use Database\Seeders\config\WebPrivacySeeder;
+use Database\Seeders\config\WebPrivacySeeder;
 use Database\Seeders\config\WebPrivacyTranslationSeeder;
 use Database\Seeders\customer\UsersCustomersSeeder;
 use Database\Seeders\data\DataCitySeeder;
@@ -67,6 +61,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FaqSeeder::class);
         $this->call(FaqTranslationSeeder::class);
         $this->call(FaqPivotSeeder::class);
+        $this->call(FaqPhotoSeeder::class);
 
         $this->call(PageSeeder::class);
         $this->call(PageTranslationSeeder::class);

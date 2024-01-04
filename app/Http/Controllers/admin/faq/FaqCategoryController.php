@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\admin\faq;
 
 use App\Helpers\AdminHelper;
 use App\Helpers\PuzzleUploadProcess;
 use App\Http\Controllers\AdminMainController;
-use App\Http\Requests\admin\FaqCategoryRequest;
-use App\Models\admin\Faq;
-use App\Models\admin\FaqCategory;
-use App\Models\admin\FaqCategoryTranslation;
+use App\Http\Requests\admin\faq\FaqCategoryRequest;
+
+use App\Models\admin\faq\FaqCategory;
+use App\Models\admin\faq\FaqCategoryTranslation;
 use Cache;
 use Illuminate\Support\Facades\View;
 

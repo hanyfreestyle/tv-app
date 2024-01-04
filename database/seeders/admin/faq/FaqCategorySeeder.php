@@ -1,8 +1,9 @@
 <?php
 
-namespace Database\Seeders\admin;
+namespace Database\Seeders\admin\faq;
 
-use App\Models\admin\FaqCategory;
+
+use App\Models\admin\faq\FaqCategory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use DB;

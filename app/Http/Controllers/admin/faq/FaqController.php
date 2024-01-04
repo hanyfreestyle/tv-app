@@ -1,23 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\admin\faq;
 
 use App\Helpers\AdminHelper;
 use App\Helpers\PuzzleUploadProcess;
 use App\Http\Controllers\AdminMainController;
-use App\Http\Requests\admin\config\DefPhotoRequest;
-use App\Http\Requests\admin\FaqPhotoEditRequest;
-use App\Http\Requests\admin\FaqPhotoRequest;
-use App\Http\Requests\admin\FaqRequest;
-use App\Http\Requests\admin\ProductPhotoRequest;
-use App\Models\admin\BlogPost;
-use App\Models\admin\BlogPostPhoto;
-use App\Models\admin\config\DefPhoto;
-use App\Models\admin\Faq;
-use App\Models\admin\FaqCategory;
-use App\Models\admin\FaqPhoto;
-use App\Models\admin\FaqTranslation;
-use App\Models\admin\Product;
+use App\Http\Requests\admin\faq\FaqPhotoEditRequest;
+use App\Http\Requests\admin\faq\FaqPhotoRequest;
+use App\Http\Requests\admin\faq\FaqRequest;
+
+use App\Models\admin\faq\Faq;
+use App\Models\admin\faq\FaqCategory;
+use App\Models\admin\faq\FaqPhoto;
+use App\Models\admin\faq\FaqTranslation;
 use Cache;
 use DB;
 use Illuminate\Http\Request;
