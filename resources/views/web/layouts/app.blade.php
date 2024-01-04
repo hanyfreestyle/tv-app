@@ -30,6 +30,7 @@
 
     <link rel="stylesheet" href="{{ defWebAssets('css/custom_style.css') }}">
     <link rel="stylesheet" href="{{ defWebAssets('css/custom_en.css') }}">
+    <link rel="stylesheet" href="{{ defWebAssets('css/custom_style_new.css') }}">
     @yield('AddStyle')
     @livewireStyles
 </head>
@@ -38,7 +39,10 @@
 <x-website.html-loader/>
 
 <header class="header_wrap">
-    @include('web.layouts.inc.header_top')
+    @if(count(config('app.WebLang')) > 1 )
+        @include('web.layouts.inc.header_top')
+    @endif
+
 {{--    @include('web.layouts.inc.header_middle')--}}
     @include('web.layouts.inc.menu')
 </header>

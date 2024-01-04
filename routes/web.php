@@ -55,7 +55,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get(LaravelLocalization::transRoute('routes.FaqCatView'),
         [WebPageController::class, 'FaqCatView'])->name('Page_FaqCatView');
 
-
+    Route::get(LaravelLocalization::transRoute('routes.FaqView'),
+        [WebPageController::class, 'FaqView'])->name('Page_FaqView');
 
 });
 

@@ -9,6 +9,7 @@ return [
     'Careers' => 'careers',
 
     'FaqCatView' => 'faq/{slug}',
+    'FaqView' => 'question/{slug}',
     'LatestNews_View' => 'latest-news/{slug}',
 
     'MainCategory' => 'category-list',

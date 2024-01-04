@@ -416,7 +416,7 @@ PAGE JS
 		$('.carousel_slider').each( function() {
 			var $carousel = $(this);
 			$carousel.owlCarousel({
-				rtl:true,
+				rtl:false,
 				dots : $carousel.data("dots"),
 				loop : $carousel.data("loop"),
 				items: $carousel.data("items"),

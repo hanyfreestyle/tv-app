@@ -1,7 +1,7 @@
 @extends('web.layouts.app')
 @section('breadcrumb')
     <x-website.breadcrumb >
-        {{ Breadcrumbs::render($SinglePageView['breadcrumb'],$FaqCategory) }}
+{{--        {{ Breadcrumbs::render($SinglePageView['breadcrumb'],$FaqCategory) }}--}}
     </x-website.breadcrumb>
 @endsection
 
@@ -18,17 +18,8 @@
                                 <div class="row mb-2">
                                     <div class="col-lg-12">
 
-                                        <h1 class="faq_def_h1"> {{ $FaqCategory->name }}</h1>
-
-                                    </div>
-                                </div>
-                                <div class="row accordion accordion_style1" id="accordion"  >
-                                    <div class="col-lg-12">
-                                        @foreach($FaqCategory->faqs as $Faq )
-                                            <x-website.faq-slider :title="$Faq->name" :prefix="$Faq->id" :loop="$loop->index">
-                                                <x-faq.faq-info-print :faq="$Faq" :printdes="$printDes" />
-                                            </x-website.faq-slider>
-                                        @endforeach
+                                        <h1 class="faq_def_h1"> {{ $Faq->name }}</h1>
+                                        <x-faq.faq-info-print :faq="$Faq" :printdes="$printDes" :btn="false" />
                                     </div>
                                 </div>
                             </div>

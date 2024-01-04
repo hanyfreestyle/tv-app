@@ -6,8 +6,10 @@ use App\Http\Requests\data\ContactUsFormRequest;
 use App\Models\admin\BlogPost;
 use App\Models\admin\Category;
 use App\Models\admin\config\WebPrivacy;
-use App\Models\admin\FaqCategory;
-use App\Models\admin\Product;
+
+
+use App\Models\admin\faq\Faq;
+use App\Models\admin\faq\FaqCategory;
 use App\Models\data\ContactUsForm;
 use Illuminate\Support\Facades\View;
 
@@ -162,7 +164,7 @@ class WebPageController extends WebMainController
             ->whereTranslation('slug', $slug)
             ->firstOrFail();
 
-//        dd($FaqCategory);
+
 
 //        if ($FaqCategory->translate()->where('slug', $slug)->first()->locale != app()->getLocale()) {
 //            return redirect()->route('Page_FaqCatView', $FaqCategory->translate()->slug);
@@ -174,15 +176,47 @@ class WebPageController extends WebMainController
         $SinglePageView = $this->SinglePageView ;
         $SinglePageView['SelMenu'] = 'FaqList' ;
         $SinglePageView['breadcrumb'] = "FaqCatView" ;
-        $SinglePageView['slug'] = 'faq/'.$FaqCategory->translate(webChangeLocale())->slug;
+        $printDes = "des_".thisCurrentLocale();
+
+//        $SinglePageView['slug'] = 'faq/'.$FaqCategory->translate(webChangeLocale())->slug;
 
         $FaqCategories = FaqCategory::defWeb()
             ->where('id','!=',$FaqCategory->id)
             ->get();
 
-        return view('web.faq_cat_view',compact('SinglePageView','PageMeta','FaqCategory','FaqCategories'));
+        return view('web.faq_cat_view',compact('SinglePageView','PageMeta','FaqCategory','FaqCategories','printDes'));
 
     }
+
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#|||||||||||||||||||||||||||||||||||||| #     FaqView
+    public function FaqView($slug)
+    {
+        $slug = \AdminHelper::Url_Slug($slug);
+
+        $Faq  = Faq::whereTranslation('slug', $slug)
+            ->firstOrFail();
+
+
+        $PageMeta = $Faq ;
+        parent::printSeoMeta($PageMeta);
+//        dd($Faq);
+//
+//
+        $SinglePageView = $this->SinglePageView ;
+        $SinglePageView['SelMenu'] = 'FaqList' ;
+//        $SinglePageView['breadcrumb'] = "FaqCatView" ;
+        $printDes = "des_".thisCurrentLocale();
+$FaqCategory = array();
+        $FaqCategories = FaqCategory::defWeb()
+            ->where('id','!=',0)
+            ->get();
+
+        return view('web.faq_view',compact('SinglePageView','PageMeta','Faq','FaqCategories','printDes'));
+
+    }
+
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| #    LatestNews

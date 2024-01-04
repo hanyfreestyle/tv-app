@@ -28,7 +28,7 @@ class FaqCategory extends Model implements TranslatableContract , LocalizedUrlRo
 #|||||||||||||||||||||||||||||||||||||| #
     public function faqs()
     {
-        return $this->belongsToMany(Faq::class,'faqcategory_faq','category_id','faq_id')
+        return $this->belongsToMany(Faq::class,'faqcategory_faq','category_id','faq_id')->with('more_photos')
             ->withPivot('postion')->orderBy('postion');
     }
 
@@ -50,7 +50,7 @@ class FaqCategory extends Model implements TranslatableContract , LocalizedUrlRo
             ->with('translation')
             ->with('faqs')
             ->withCount('faqs')
-            ->orderBy('faqs_count','asc')
+            ->orderBy('faqs_count','desc')
             ;
     }
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -59,6 +59,8 @@ class FaqCategory extends Model implements TranslatableContract , LocalizedUrlRo
     {
         return $this->hasMany(FaqCategoryTranslation::class,'category_id','id');
     }
+
+
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #|||||||||||||||||||||||||||||||||||||| #

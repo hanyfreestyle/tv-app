@@ -186,32 +186,9 @@
 .PrivacyList ul li{font-size:15px;margin-bottom:5px;line-height:30px!important}
 
 
-.faqcat_list{border-top:0 solid #ddd;border-bottom:0 solid #ddd;margin-top:20px}
-.faqcat_list .icon_box{margin:auto;max-width:100%;margin-bottom:20px;margin-top:0;padding-top:0;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center}
-.faqcat_list h2{font-size:18px;margin-bottom:5px}
-.faqcat_list .cat_count{color: var(--red);font-size:14px;font-family:sans-serif!important}
-.faqcat_list p{font-size:15px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;line-height:25px;margin-bottom:5px}
-.faq_icon{box-shadow:rgba(0,0,0,0.05) 0 1px 3px,rgba(0,0,0,0.12) 0 1px 2px!important}
-.faq_icon img{max-width:60px}
-.faqcat_list .readmore{width:100%}
-.faqcat_list .readmore a{color: var(--red);float:left;margin-left:0!important;font-size:.85rem!important}
 
 
 
-.faq_logo img{
-    max-width: 90%;
-    margin: auto;
-    margin-bottom: 10px;
-    border-radius: 10px;
-}
-
-.faq_logo h3{
-    font-size: 16px;
-    text-align: center;
-    line-height: 20px;
-    color: red;
-    font-weight: bold;
-}
 
 .blog_post_card .blog_title{font-size:16px;font-weight:600;line-height:28px;min-height:60px;margin-bottom:2px}
 .blog_post_card .g_des{font-size:15px;font-weight:400;line-height:28px;min-height:90px;margin-top:0}

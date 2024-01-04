@@ -1,0 +1,110 @@
+.faq_cat_list{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.faq_cat_list .img_div{
+
+}
+
+.faq_cat_list .img_div img{
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.faq_cat_list h2{
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.faq_cat_list h2 span{
+    color: red;
+    width: 100%;
+    font-size: 12px;
+    font-weight: normal;
+
+    text-align: center;
+}
+
+
+.faq_logo img{
+    max-width: 90%;
+    margin: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.faq_logo h3{
+    font-size: 16px;
+    text-align: center;
+    line-height: 20px;
+    color: red;
+    font-weight: bold;
+}
+
+
+.faq_def_h1{
+    font-size: 25px;
+    width: 100%;
+    color:red;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    border-bottom: 2px dotted rgba(0,0,0,.1);
+}
+
+.faq_des_div{
+    min-height: 150px;
+    margin: 10px 1px;
+    padding: 2px 5px;
+
+}
+.faq_des_div p{
+    font-size: 16px;
+    line-height: 30px;
+
+
+}
+
+.faq_des_div li{
+    font-size: 16px;
+    line-height: 30px;
+    list-style: inside;
+}
+
+
+.faq_img_print{
+    min-height: 50px;
+
+}
+.faq_des_print{
+
+
+
+}
+
+.faq_des_print p{
+
+
+
+}
+
+.faq_photo_p{
+
+    text-align: center!important;
+    width: 100%;
+
+}
+
+.faq_photo_p img{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 90%!important;
+
+
+}
+
+
+
+

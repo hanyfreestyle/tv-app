@@ -17,7 +17,7 @@ class Faq extends Model implements TranslatableContract
     use Translatable;
     use SoftDeletes;
 
-    public $translatedAttributes = ['name','des','other','url'];
+    public $translatedAttributes = ['name','des','other','slug'];
     protected $fillable = ['category_id','photo','photo_thum_1','is_active','postion','text_view','url_type'];
     protected $table = "faqs";
     protected $primaryKey = 'id';

@@ -69,12 +69,18 @@
 
                     </div>
 
-                    <ul class="navbar-nav attr-nav align-items-center d-md-noneX  ">
-                        <li><a href="{{ LaravelLocalization::getLocalizedURL(webChangeLocale(), null, [], true) }}" class="nav-link changeLangMobile">
-                                <span> <img src="{{ defWebAssets('img/'.webChangeLocale().'.png') }}" alt=""></span>
-                            </a>
-                        </li>
-                    </ul>
+                        <ul class="navbar-nav attr-nav align-items-center d-md-noneX  ">
+                            @if(count(config('app.WebLang')) >1 )
+                            <li><a href="{{ LaravelLocalization::getLocalizedURL(webChangeLocale(), null, [], true) }}" class="nav-link changeLangMobile">
+                                    <span> <img src="{{ defWebAssets('img/'.webChangeLocale().'.png') }}" alt=""></span>
+                                </a>
+                            </li>
+                            @else
+                                <li style="min-height:60px!important;"></li>
+                            @endif
+                        </ul>
+
+
                 </nav>
             </div>
         </div>
