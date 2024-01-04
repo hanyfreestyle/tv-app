@@ -24,10 +24,15 @@
                 </div>
             </div>
             <div class="col-lg-6 col-md-4">
-
+{{--                <div class="d-flex align-items-center justify-content-center justify-content-md-end">--}}
+{{--                    <a class="lang_text" href="{{ LaravelLocalization::getLocalizedURL(webChangeLocale(),$SinglePageView['slug'], [], true) }}">--}}
+{{--                        <span class="lang_icon"> <img src="{{ defWebAssets('img/'.webChangeLocale().'.png') }}" alt=""></span>--}}
+{{--                        {{webChangeLocaletext()}}--}}
+{{--                    </a>--}}
+{{--                </div>--}}
 
                 <div class="d-flex align-items-center justify-content-center justify-content-md-end">
-                        <a class="lang_text" href="{{ LaravelLocalization::getLocalizedURL(webChangeLocale(),$SinglePageView['slug'], [], true) }}">
+                        <a class="lang_text" href="#">
                         <span class="lang_icon"> <img src="{{ defWebAssets('img/'.webChangeLocale().'.png') }}" alt=""></span>
                         {{webChangeLocaletext()}}
                     </a>

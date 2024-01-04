@@ -14,7 +14,7 @@
                     <div class=" pb-5">
                         <div class="row">
                             @foreach($FaqCategories as $Category )
-                                <div class="col-lg-3">
+                                <div class="col-lg-3 col-6">
 
                                     <div class="faq_cat_list">
                                         <div class="img_div">

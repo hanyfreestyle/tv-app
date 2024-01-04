@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {!! SEO::generate() !!}
 
-    <x-website.fav-icon />
+{{--    <x-website.fav-icon />--}}
     <link rel="stylesheet" href="{{ defWebAssets('css/animate.css') }}">
     <link rel="stylesheet" href="{{ defWebAssets('bootstrap/css/bootstrap.min_en.css') }}">
     <link rel="stylesheet" href="{{ defWebAssets('css/all.min.css') }}">
@@ -42,7 +42,7 @@
     @if(count(config('app.WebLang')) > 1 )
         @include('web.layouts.inc.header_top')
     @endif
-
+        @include('web.layouts.inc.header_top')
 {{--    @include('web.layouts.inc.header_middle')--}}
     @include('web.layouts.inc.menu')
 </header>

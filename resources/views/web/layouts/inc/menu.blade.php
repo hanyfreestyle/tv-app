@@ -76,7 +76,10 @@
                                 </a>
                             </li>
                             @else
-                                <li style="min-height:60px!important;"></li>
+                                <li><a href="#" class="nav-link changeLangMobile">
+                                        <span> <img src="{{ defWebAssets('img/'.webChangeLocale().'.png') }}" alt=""></span>
+                                    </a>
+                                </li>
                             @endif
                         </ul>
 
