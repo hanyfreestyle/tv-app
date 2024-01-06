@@ -94,7 +94,7 @@ return [
     'WebLang' =>[
        // 'ar'=>'العربية',
         'en'=>'English',
-//        'es'=>'Spanish',
+        'es'=>'Spanish',
     ],
 
     /*
